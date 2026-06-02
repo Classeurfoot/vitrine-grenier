@@ -3,26 +3,256 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Le Grenier du Football | Archives & Matchs de Foot Entiers en Vidéo (VHS/DVD)</title>
-    <meta name="description" content="Découvrez le plus grand catalogue de matchs de football rétro. Près de 5000 matchs classiques complets numérisés depuis des VHS et DVD. Téléchargez vos vidéos historiques !">
+    
+    <title>Le Grenier du Football | Archives & Matchs de Foot Rétro en Vidéo</title>
+    <meta name="description" content="Découvrez le plus grand catalogue d'archives de football rétro. Près de 5000 matchs de foot entiers classiques complets numérisés depuis des cassettes VHS et DVD d'époque. Téléchargez vos vidéos historiques !">
+    <meta name="keywords" content="match de foot entier, football retro, archives vhs football, telecharger match de foot vintage, ligue des champions retro, coupe du monde 1998 vhs, dvd foot gratuit, video foot ancien">
     
     <style>
-        body { font-family: Arial, sans-serif; background-color: #1a1a1a; color: white; text-align: center; padding: 50px; }
-        .bouton-entrer { background-color: #d97706; color: white; padding: 15px 30px; text-decoration: none; font-size: 20px; font-weight: bold; border-radius: 8px; display: inline-block; margin-top: 30px; }
-        .bouton-entrer:hover { background-color: #b45f06; }
+        :root {
+            --bg-color: #0e0e11;
+            --card-bg: #18181c;
+            --primary: #d97706;
+            --primary-hover: #b45f06;
+            --text: #fafafa;
+            --text-muted: #a1a1aa;
+            --border: #2d2d34;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text);
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* HERO SECTION */
+        header {
+            text-align: center;
+            padding: 60px 20px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        h1 {
+            font-size: 2.8rem;
+            color: var(--text);
+            margin-bottom: 10px;
+            font-weight: 800;
+        }
+
+        h1 span {
+            color: var(--primary);
+        }
+
+        .subtitle {
+            font-size: 1.3rem;
+            color: var(--text-muted);
+            max-width: 800px;
+            margin: 20px auto;
+        }
+
+        .btn-cta {
+            background-color: var(--primary);
+            color: white;
+            padding: 16px 36px;
+            text-decoration: none;
+            font-size: 1.2rem;
+            font-weight: bold;
+            border-radius: 8px;
+            display: inline-block;
+            margin-top: 20px;
+            box-shadow: 0 4px 15px rgba(217, 119, 6, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .btn-cta:hover {
+            background-color: var(--primary-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(217, 119, 6, 0.5);
+        }
+
+        /* SECTIONS DE CONTENU */
+        section {
+            padding: 50px 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        h2 {
+            font-size: 2rem;
+            color: var(--primary);
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+        }
+
+        .card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 25px;
+            text-align: left;
+            transition: transform 0.2s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card h3 {
+            color: #fff;
+            margin-top: 0;
+            font-size: 1.3rem;
+        }
+
+        /* SECTION SPECIFIQUE RECHERCHES */
+        .wanted-box {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-top: 20px;
+        }
+
+        .wanted-card {
+            padding: 25px;
+            border-radius: 12px;
+            border: 2px solid;
+        }
+
+        .milan {
+            background-color: #2b1111;
+            border-color: #e32221;
+        }
+
+        .france98 {
+            background-color: #0b2340;
+            border-color: #1a5fb4;
+        }
+
+        /* FOOTER */
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        footer a {
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            h1 { font-size: 2rem; }
+            .wanted-box { grid-template-columns: 1fr; }
+        }
     </style>
 </head>
 <body>
 
-    <h1>Le Grenier du Football : Vos Matchs Historiques en Vidéo</h1>
-    
-    <h2>Revivez l'Histoire du foot : Coupe du Monde, Ligue des Champions, Championnats.</h2>
-    
-    <p style="max-width: 800px; margin: 0 auto; line-height: 1.6;">
-        Bienvenue dans la plus grande vidéothèque de football rétro. Nous avons numérisé des milliers d'heures de cassettes VHS et de DVD pour vous permettre de revoir des <strong>matchs de foot entiers</strong> avec les commentaires originaux (TF1, Canal+, etc.).
-    </p>
+    <div class="container">
+        
+        <header>
+            <h1>⚡ Le Grenier du <span>Football</span></h1>
+            <p class="subtitle">Le sanctuaire de la vidéo de football vintage. Plus de <strong>5 000 matchs entiers historiques</strong> sauvegardés et disponibles au téléchargement.</p>
+            <a href="https://legrenierdufootball.streamlit.app/" class="btn-cta">📂 Ouvrir le Catalogue Interactif</a>
+        </header>
 
-    <a href="https://legrenierdufootball.streamlit.app/" class="bouton-entrer">🚪 Entrer dans le Catalogue Interactif</a>
+        <section id="concept">
+            <h2>📼 Sauvegarder le Patrimoine du Football Rétro</h2>
+            <div class="grid-3">
+                <div class="card">
+                    <h3>Nostalgie des Commentaires</h3>
+                    <p>Revivez l'émotion brute des retransmissions d'époque. Retrouvez les prises d'antennes légendaires, les voix mythiques de TF1, Canal+, France Télévisions ou de diffuseurs étrangers qui ont marqué l'histoire du ballon rond.</p>
+                </div>
+                <div class="card">
+                    <h3>De la VHS au Numérique</h3>
+                    <p>Notre mission est d'exhumer les bandes magnétiques, cassettes VHS et vieux DVD oubliés au fond des cartons pour les numériser. Une véritable bibliothèque d'archives préservée de l'usure du temps.</p>
+                </div>
+                <div class="card">
+                    <h3>Vidéothèque Privée</h3>
+                    <p>Des années 60 aux saisons plus récentes, parcourez une base de données massive pour compléter votre collection personnelle ou revoir le match culte de votre enfance avec ses maillots trop larges et ses pubs d'époque.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="competitions">
+            <h2>🏆 Un Catalogue de Légende à Explorer</h2>
+            <p style="text-align: center; max-width: 700px; margin: -20px auto 40px; color: var(--text-muted);">Que vous soyez passionné de sélections nationales ou amoureux des grands clubs européens, filtrez et cherchez vos affiches préférées.</p>
+            <div class="grid-3">
+                <div class="card">
+                    <h3>🌍 Tournois Internationaux</h3>
+                    <p>Toutes les phases finales et éliminatoires des plus grandes compétitions : Coupe du Monde (Mondial), Championnat d'Europe (Euro), Copa América, Coupe des Confédérations et Jeux Olympiques.</p>
+                </div>
+                <div class="card">
+                    <h3>✨ Coupes d'Europe</h3>
+                    <p>Revivez les soirées magiques européennes. De l'ancienne Coupe d'Europe des Clubs Champions à la Ligue des Champions (C1) moderne, en passant par la Coupe des Coupes (C2), la Coupe UEFA (C3) ou l'Intertoto.</p>
+                </div>
+                <div class="card">
+                    <h3>🏟️ Grands Championnats</h3>
+                    <p>Suivez l'historique des ligues majeures : la Division 1 / Ligue 1 française, la Serie A italienne, la Liga espagnole, la Premier League anglaise, ainsi que les Coupes Nationales historiques.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="tarifs">
+            <h2>💶 Tarifs Transparents & Formats Vidéo</h2>
+            <div class="grid-3">
+                <div class="card">
+                    <h3>💻 Format Numérique (3€)</h3>
+                    <p>Fichiers vidéo compressés aux formats courants (MP4, MKV, AVI). Idéaux pour une lecture instantanée, fluide et légère sur vos ordinateurs, tablettes, smartphones ou téléviseurs modernes.</p>
+                </div>
+                <div class="card">
+                    <h3>💿 Format DVD / VOB (5€)</h3>
+                    <p>Pour les puristes de l'image. Vous recevez les fichiers informatiques originaux non-compressés (.VOB) issus directement du disque. Idéal pour conserver le flux vidéo brut sans perte de qualité.</p>
+                </div>
+                <div class="card">
+                    <h3>🎁 1 Match Offert sur 10</h3>
+                    <p>Profitez de notre offre de fidélité automatique : pour chaque tranche de 10 matchs ajoutés à votre panier interactif, le 11ème match (le moins cher de votre sélection) vous est intégralement offert !</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="echanges">
+            <h2>🤝 Rejoignez la Communauté des Collectionneurs</h2>
+            <p style="text-align: center; color: var(--text-muted);">Le Grenier grandit grâce au partage. Si vous possédez vos propres enregistrements, troquons nos archives !</p>
+            <div class="wanted-box">
+                <div class="wanted-card milan">
+                    <h3>🔴⚫ Focus AC Milan</h3>
+                    <p>Fervent Tifoso des Rossoneri avec plus de 600 matchs au compteur, je recherche activement tout match complet de l'AC Milan toutes époques confondues (commentaires français ou italiens privilégiés).</p>
+                </div>
+                <div class="wanted-card france98">
+                    <h3>✨ Projet France 98</h3>
+                    <p>L'objectif ultime : réunir l'intégralité des 64 matchs de la Coupe du Monde 1998 dans les meilleures qualités existantes, avec toutes les versions TV d'époque (TF1, France TV, Canal+, Eurosport).</p>
+                </div>
+            </div>
+        </section>
+
+        <section style="text-align: center; border-bottom: none; padding: 60px 0 20px;">
+            <h2>Prêt à fouiller les cartons de l'Histoire ?</h2>
+            <p style="color: var(--text-muted); margin-bottom: 30px;">Accédez dès maintenant à l'application, composez votre panier et contactez l'archiviste pour recevoir vos liens de téléchargement sécurisés.</p>
+            <a href="https://legrenierdufootball.streamlit.app/" class="btn-cta">🚪 Entrer dans le Grenier du Football</a>
+        </section>
+
+        <footer>
+            <p>© 2026 - Le Grenier du Football | Site Vitrine Optimisé pour les Passionnés.</p>
+            <p>Contact : <a href="mailto:legrenierdufootball@hotmail.com">legrenierdufootball@hotmail.com</a></p>
+        </footer>
+
+    </div>
 
 </body>
 </html>
