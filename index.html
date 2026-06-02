@@ -132,12 +132,11 @@
             font-weight: 600;
         }
 
-        /* STYLE DU BLOG EN GRILLE 2 COLONNES */
+        /* STYLE DU BLOG EN GRILLE 2 COLONNES ALIGNÉES */
         .blog-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 25px;
-            align-items: start;
         }
 
         .blog-article {
@@ -146,6 +145,8 @@
             border-radius: 10px;
             padding: 25px;
             text-align: left;
+            display: flex;
+            flex-direction: column;
         }
 
         .blog-meta {
@@ -166,6 +167,11 @@
             color: var(--text-muted);
             margin-bottom: 0;
             font-size: 0.95rem;
+        }
+
+        .blog-article button {
+            margin-top: auto !important;
+            padding-top: 20px;
         }
 
         /* LES INFOS DU GRENIER */
@@ -207,7 +213,7 @@
             .header-title-container { flex-direction: column; gap: 10px; }
             h1 { font-size: 1.8rem; text-align: center; }
             .grid-2 { grid-template-columns: 1fr; }
-            .blog-grid { grid-template-columns: 1fr; } /* Repasse sur 1 colonne sur mobile */
+            .blog-grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
@@ -244,38 +250,23 @@
                     <p>Alors que le peuple rouge et bleu termine à peine de célébrer le deuxième sacre consécutif historique du club en Champions League conquis à Budapest, un constat s'impose : le PSG version Luis Enrique a définitivement installé sa dictature sur le football européen. Finie l'époque des stars hollywoodiennes qui s'égaraient en huitièmes de finale ; place à une machine collective ultra-huilée, capable de confisquer le ballon et d'éteindre les plus grands d'Europe par un pressing étouffant.</p>
 
                     <div id="suite-article-4" style="display: none; margin-top: 15px;">
-                        
                         <p>Pourtant, pour apprécier à sa juste valeur ce printemps 2026 légendaire, il faut se pencher sur le cadavre des géants que Paris a dû piétiner en route. Sortez les projecteurs, on revient sur une campagne européenne gravée dans le marbre.</p>
-                        
                         <p style="color: #fff; font-weight: bold;">Le rouleau compresseur face aux ogres : Liverpool et le Bayern terrassés</p>
-                        
                         <p>Pour s'offrir une place au sommet de la Champions League cette année, le PSG n'a pas hérité du tirage au sort des poissards. Le tableau final ressemblait plutôt à un pèlerinage de l'angoisse à travers l'histoire du football européen.</p>
-                        
                         <p>D'abord, il a fallu régler son compte à Liverpool en quarts de finale. Le match aller au Parc des Princes avait posé les bases (2-0), mais c'est le retour à Anfield qui a définitivement douché les espoirs des Reds. Une victoire nette et sans bavure (2-0) scellée par un doublé assassin d'Ousmane Dembélé en fin de rencontre, transformant le kop de Liverpool en une cathédrale de silence. Score cumulé : 4-0, circulez, il n'y a rien à voir.</p>
-                        
                         <p>Puis est venu le monstre final avant l'heure : le Bayern Munich en demi-finale. Les puristes se souviennent encore de la défaite parisienne en phase de ligue (2-1) au Parc, mais les hommes de Luis Enrique ont de la mémoire et du vice. Le match aller de cette demi-finale restera comme l'un des sommets dramatiques de l'année : un succès 5-4 dantesque à Paris, suivi d'un nul irrespirable (1-1) arraché à l'Allianz Arena grâce à un but rapide de Dembélé. Solide sur ses appuis, le bloc parisien a repoussé les assauts bavarois jusqu'au coup de sifflet final pour s'ouvrir les portes de l'histoire.</p>
-                        
                         <p style="color: #fff; font-weight: bold;">Du collectif de Luis Enrique aux exploits d'antan : Le pèlerinage du Grenier</p>
-                        
                         <p>Voir Marquinhos soulever sa deuxième coupe aux grandes oreilles d'affilée avec le brassard de capitaine, c'est magnifique. Mais pour les romantiques du football, ceux qui traînent leurs guêtres sur notre site, ce triomphe moderne réveille de vieux souvenirs enfouis au fond de la mémoire collective.</p>
-                        
                         <p>Avant d'être le rouleau compresseur aux 60 titres majeurs, le club de la capitale a mangé son pain noir. Il a fallu les coups de génie de Rai, les déboulés de George Weah en 1994, la folie de la Coupe des Coupes 1996 et des soirées de tempête face au Steaua Bucarest pour forger l'ADN européen de cette équipe.</p>
-                        
                         <p>Les joutes dantesques de cette année face au Bayern Munich ou à Liverpool font directement écho aux affrontements cultes des années 90 et 2000. Vous vous rappelez du but stratosphérique de Weah à Munich en 1994 ? Ou des face-à-face tactiques de l'ère classique ? C'est cette histoire-là, texturée, imparfaite et passionnée, qui a donné au club ses lettres de noblesse avant l'ère moderne.</p>
-                        
                         <p style="color: #fff; font-weight: bold;">Dépoussiérez vos classiques avant d’ouvrir le champagne</p>
-                        
                         <p>Regarder l'équipe soulever des trophées en streaming 4K, c'est bien. Mais comprendre d'où vient cette obsession européenne en se refaisant les matchs fondateurs en qualité d'époque, c'est encore mieux.</p>
-                        
                         <p>Comme l'indique l'architecture de notre application, les archives du football ne meurent jamais. Que vous soyez nostalgiques de la double confrontation face au Bayern de l'an 2000 ou des grandes soirées européennes qui prenaient vie sur les magnétoscopes de votre enfance, tout est conservé amoureusement dans nos rayons.</p>
-                        
                         <p>Vous pouvez récupérer ces trésors directement en fichiers numériques légers (parfaits pour une session rapide sur tablette) ou en qualité informatique d'origine (fichiers .VOB) pour retrouver le grain pur des retransmissions de l'époque sur votre téléviseur.</p>
-                        
                         <p>Alors, entre deux célébrations pour ce doublé européen unique, venez faire un tour au fond du Grenier. Parce que pour savoir où l'on va, il ne faut jamais oublier d'où l'on vient !</p>
-                    
                     </div>
 
-                    <button id="btn-lire-4" onclick="toggleArticle4()" style="background: none; border: none; color: #d97706; font-weight: bold; cursor: pointer; padding: 0; margin-top: 15px; font-size: 0.95rem; display: block;">
+                    <button id="btn-lire-4" onclick="toggleArticle('suite-article-4', 'btn-lire-4')" style="background: none; border: none; color: #d97706; font-weight: bold; cursor: pointer; padding: 0; display: block;">
                         ⬇️ Lire la suite
                     </button>
                 </article>
@@ -286,10 +277,9 @@
                     <h3>USA 94 vs Mondial 2026 : Retour vers le futur</h3>
                     
                     <p>Alors que le Mondial 2026 s'apprête à poser ses valises XXL sur le continent américain, un vent de nostalgie souffle sur le football mondial. Trente-deux ans après l’épopée mythique d'USA 94, les États-Unis remettent le couvert. Pour les puristes qui ont grandi avec le grain des archives VHS, les maillots trois fois trop grands et les génériques télé qui sentent bon les années 90, ce retour au pays de l'Oncle Sam est un pèlerinage obligatoire.</p>
-                    
-                    <p>Mais entre le soccer version 1994 et le giga-tournoi à 48 équipes de 2026, qu’est-ce qui a vraiment changé ? Sortez les magnétoscopes, on plonge dans le football rétro le plus fou de l'Histoire. Le folklore d'USA 94 : Diana Ross, gardien fluo et short en jean.</p>
 
                     <div id="suite-article-3" style="display: none; margin-top: 15px;">
+                        <p>Mais entre le soccer version 1994 et le giga-tournoi à 48 équipes de 2026, qu’est-ce qui a vraiment changé ? Sortez les magnétoscopes, on plonge dans le football rétro le plus fou de l'Histoire. Le folklore d'USA 94 : Diana Ross, gardien fluo et short en jean.</p>
                         <p>Disons-le franchement : en 1994, la FIFA voulait évangéliser les Américains au "vrai" football. Ce qu’elle n’avait pas prévu, c’est que l’Amérique allait digérer le football à sa sauce. Le Mondial 94, c’est d'abord une cérémonie d’ouverture gravée dans le marbre de la lose magnifique, avec Diana Ross qui rate un penalty face à un but grand ouvert, juste avant que le cadre ne se sépare en deux de manière totalement scriptée.</p>
                         <p>C’est aussi l’époque où le design textile a fait un AVC collectif. Qui a oublié Alexis Lalas et les maillots de l'équipe des USA façon nappe de pique-nique en jean avec des étoiles blanches ? Et surtout, qui a survécu visuellement aux tenues de Jorge Campos, le gardien-attaquant mexicain qui concevait lui-même ses maillots, ressemblant à un surligneur Stabilo sous acide ?</p>
                         <p>Revoyez un match de foot entier de cette époque : le rythme est différent, le public découvre les règles en direct, mais l'ambiance des stades de Pasadena ou de Détroit sous un soleil de plomb a une texture unique que le football moderne sur-standardisé a un peu perdue. Du drame, du sang et la Tresse Divine. Si le folklore était pop, le terrain, lui, était un théâtre dramatique d'une intensité rare.</p>
@@ -299,7 +289,7 @@
                         <p>Aujourd’hui, le patrimoine est en danger, et c’est là que la magie opère. Pour comprendre la ferveur qui va s'emparer des stades américains cet été, il faut se refaire l'intégrale. Sur notre plateforme, nous avons dépoussiéré ces trésors. Que vous cherchiez le magique Roumanie ou la finale fermée mais irrespirable entre le Brésil et l'Italie, tout est disponible. Vous pouvez télécharger vos matchs vintage préférés en qualité informatique d'origine ou en fichiers numériques légers pour les visionner sur votre télé avant les matchs de ce soir. Alors, avant de basculer dans le football du futur, venez faire un tour au fond du Grenier. Parce que le football, c’était peut-être pas mieux avant, mais bordel, qu'est-ce que ça avait de la gueule !</p>
                     </div>
 
-                    <button id="btn-lire-3" onclick="toggleArticle3()" style="background: none; border: none; color: #d97706; font-weight: bold; cursor: pointer; padding: 0; margin-top: 15px; font-size: 0.95rem; display: block;">
+                    <button id="btn-lire-3" onclick="toggleArticle('suite-article-3', 'btn-lire-3')" style="background: none; border: none; color: #d97706; font-weight: bold; cursor: pointer; padding: 0; display: block;">
                         ⬇️ Lire la suite
                     </button>
                 </article>
@@ -308,33 +298,39 @@
                 <article class="blog-article">
                     <div class="blog-meta">📅 Chronique #2 • Les Grands Récits</div>
                     <h3>Mondial 1998 : À la recherche des 64 matchs de la compétition idéale</h3>
-                    <p>Bâtir l'archive ultime de France 98 est un travail de titan. Entre les commentaires mythiques du duo Thierry Roland - Jean-Michel Larqué sur TF1 et les analyses tactiques de Canal+, chaque diffuseur possède sa propre histoire. L'objectif du Grenier est de rassembler toutes ces versions TV françaises pour préserver ce patrimoine historique exceptionnel...</p>
+                    
+                    <p>Bâtir l'archive ultime de France 98 est un travail de titan. Entre les commentaires mythiques du duo Thierry Roland - Jean-Michel Larqué sur TF1 et les analyses tactiques de Canal+, chaque diffuseur possède sa propre histoire.</p>
+                    
+                    <div id="suite-article-2" style="display: none; margin-top: 15px;">
+                        <p>L'objectif du Grenier est de rassembler toutes ces versions TV françaises pour préserver ce patrimoine historique exceptionnel. Des phases de poules à la finale mythique du 12 juillet, rejoignez le projet pour compléter cette collection unique d'archives et de retransmissions complètes.</p>
+                    </div>
+
+                    <button id="btn-lire-2" onclick="toggleArticle('suite-article-2', 'btn-lire-2')" style="background: none; border: none; color: #d97706; font-weight: bold; cursor: pointer; padding: 0; display: block;">
+                        ⬇️ Lire la suite
+                    </button>
                 </article>
                 
                 <!-- ARTICLE 1 -->
                 <article class="blog-article">
                     <div class="blog-meta">📅 Chronique #1 • Histoire du Foot</div>
                     <h3>Pourquoi les archives de matchs en format DVD (.VOB) ont une meilleure qualité ?</h3>
-                    <p>Quand on collectionne les vieux matchs de football, on croise souvent deux formats : le numérique compressé (MP4) et le format DVD d'origine (.VOB). Le format VOB conserve l'intégralité du flux vidéo d'époque sans appliquer de nouvelle compression numérique. C'est le secret pour garder le grain parfait et la netteté d'une diffusion télévisée des années 90 sur vos écrans modernes...</p>
+                    
+                    <p>Quand on collectionne les vieux matchs de football, on croise souvent deux formats : le numérique compressé (MP4) et le format DVD d'origine (.VOB). Le format VOB conserve l'intégralité du flux vidéo d'époque sans appliquer de nouvelle compression.</p>
+                    
+                    <div id="suite-article-1" style="display: none; margin-top: 15px;">
+                        <p>C'est le secret pour garder le grain parfait et la netteté d'une diffusion télévisée des années 90 sur vos écrans modernes. Bien que plus lourd en espace de stockage, c'est le choix privilégié des vrais puristes de l'image vidéo.</p>
+                    </div>
+
+                    <button id="btn-lire-1" onclick="toggleArticle('suite-article-1', 'btn-lire-1')" style="background: none; border: none; color: #d97706; font-weight: bold; cursor: pointer; padding: 0; display: block;">
+                        ⬇️ Lire la suite
+                    </button>
                 </article>
 
-                <!-- 4. LES MINI-SCRIPTS -->
+                <!-- LE SCRIPT UNIVERSEL POUR TOUS LES ARTICLES -->
                 <script>
-                function toggleArticle3() {
-                    var suite = document.getElementById("suite-article-3");
-                    var btn = document.getElementById("btn-lire-3");
-                    if (suite.style.display === "none") {
-                        suite.style.display = "block";
-                        btn.innerHTML = "⬆️ Réduire l'article";
-                    } else {
-                        suite.style.display = "none";
-                        btn.innerHTML = "⬇️ Lire la suite";
-                    }
-                }
-                
-                function toggleArticle4() {
-                    var suite = document.getElementById("suite-article-4");
-                    var btn = document.getElementById("btn-lire-4");
+                function toggleArticle(suiteId, btnId) {
+                    var suite = document.getElementById(suiteId);
+                    var btn = document.getElementById(btnId);
                     if (suite.style.display === "none") {
                         suite.style.display = "block";
                         btn.innerHTML = "⬆️ Réduire l'article";
