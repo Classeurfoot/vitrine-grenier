@@ -132,11 +132,12 @@
             font-weight: 600;
         }
 
-        /* STYLE DU BLOG */
+       /* STYLE DU BLOG */
         .blog-grid {
-            display: flex;
-            flex-direction: column;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
             gap: 25px;
+            align-items: start; /* Permet aux articles de ne pas s'étirer bizarrement s'ils n'ont pas la même longueur */
         }
 
         .blog-article {
