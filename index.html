@@ -178,7 +178,8 @@
             padding-left: 100%;
             font-weight: 500;
             font-size: 0.95rem;
-            animation: ticker-anim 35s linear infinite;
+            /* Modifié à 60s pour un défilement plus lent */
+            animation: ticker-anim 60s linear infinite; 
         }
 
         .ticker-item:hover {
@@ -514,6 +515,7 @@
 </head>
 <body>
 
+    <!-- MENU DE NAVIGATION (SILOS) -->
     <nav class="main-nav">
         <ul>
             <li><a href="index.html" class="active">Accueil</a></li>
@@ -523,6 +525,7 @@
         </ul>
     </nav>
 
+    <!-- BANDEAU ÉPHÉMÉRIDE DYNAMIQUE -->
     <div class="ticker-wrap">
         <div class="ticker-heading" id="date-du-jour">📅 Ce jour-là :</div>
         <div class="ticker">
@@ -559,6 +562,7 @@
             <img src="https://raw.githubusercontent.com/Classeurfoot/vitrine-grenier/main/logospagevitrine/real.webp" alt="Real Madrid" loading="lazy">
         </div>
 
+        <!-- SECTION LA PÉPITE DU MOIS -->
         <div class="pepite-section">
             <div class="pepite-header">
                 <span class="pepite-badge">🔥 La Pépite du Mois</span>
@@ -669,7 +673,7 @@
                         <summary>⬇️ Lire la suite / Réduire</summary>
                         <div style="margin-top: 15px;">
                             <p>Si tout le monde se rappelle de 1993, notre football regorge de parcours héroïques, d'exploits majeurs et de tragédies magnifiques qui ont fini par s'effacer des mémoires. Sortons les cartons du fond de la pièce, c'est l'heure de redonner vie à une Coupe d'Europe retro comme on n'en fera plus.</p>
-                            <p style="color: #fff; font-weight: bold;">Le printemps de tous miracles : Bordeaux 1996 et Monaco 2004</p>
+                            <p style="color: #fff; font-weight: bold;">Le printemps de tous les miracles : Bordeaux 1996 et Monaco 2004</p>
                             <p>S'il y a bien un exploit qui mérite de figurer dans la collection de tout amoureux de football vintage, c'est l'épopée des Girondins de Bordeaux 1996 en Coupe UEFA. Qualifiés via le mystérieux Intertoto, les Bordelais se retrouvent en quarts de finale face au grand AC Milan de Maldini et Baresi. Battus 2-0 à l'aller, les Marine et Blanc signent un match retour légendaire au Parc Lescure : une victoire 3-0 portée par un jeune entraîneur nommé Rolland Courbis, les déboulés de Christophe Dugarry et la patte technique d'un certain Zinédine Zidane. Un match complet de club français d'une intensité absolue, disponible dans nos rayons.</p>
                             <p>Quelques années plus tard, c'est l'AS Monaco 2004 en Ligue des Champions qui fait souffler un vent de folie sur l'Europe. Guidés par Didier Deschamps, les Monégasques éliminent coup sur coup le Real Madrid des Galactiques et le Chelsea naissant de Claudio Ranieri. La chevelure au vent de Ludovic Giuly, le sens du but de Fernando Morientes, les centres au cordeau de Jérôme Rothen... Ce parcours jusqu'en finale reste l'une des plus belles odes au football offensif des vingt dernières années.</p>
                             <p style="color: #fff; font-weight: bold;">La beauté tragique : L'OM 1991 et les pionniers de Bastia</p>
@@ -757,6 +761,7 @@
             </div>
         </section>
 
+        <!-- SECTION AVIS / PREUVE SOCIALE -->
         <section id="avis">
             <h2>⭐ La parole aux passionnés</h2>
             <div class="reviews-grid">
@@ -811,6 +816,7 @@
 
     </div>
 
+    <!-- BOUTON RETOUR EN HAUT -->
     <button id="btn-back-to-top" title="Retour en haut">⬆️</button>
 
     <script>
@@ -833,6 +839,7 @@
         };
     </script>
 
+    <!-- SCRIPT POUR L'ÉPHÉMÉRIDE RÉTRO -->
     <script>
         // 1. LE LIEN VERS TON FICHIER LOCAL
         const urlCSV = "matchs.csv";
@@ -859,18 +866,18 @@
                     // Séparateur point-virgule (adapté à ton CSV)
                     const colonnes = lignes[i].split(';'); 
                     
-                    // On s'assure qu'on a bien accès aux colonnes (Date = 5, Domicile = 6, Extérieur = 7)
-                    if (colonnes.length > 7) {
+                    // On s'assure qu'on a bien accès aux colonnes (Compétition = 2, Date = 5, Domicile = 6, Extérieur = 7, Score = 8)
+                    if (colonnes.length > 8) {
                         const dateMatch = colonnes[5]; 
                         
                         if (dateMatch && dateMatch.includes(rechercheDate)) {
+                            const competition = colonnes[2];
                             const domicile = colonnes[6]; 
                             const exterieur = colonnes[7]; 
+                            const score = colonnes[8];
                             
-                            // On extrait l'année : "DD/MM/YYYY" => on récupère "YYYY" (les 4 derniers caractères)
-                            const annee = dateMatch.substring(6, 10); 
-                            
-                            matchsDuJour.push(`<span class="match-ephemeride">⚽ ${domicile} - ${exterieur} (${annee})</span>`);
+                            // Construction du format demandé : (Compétition) Domicile Score Extérieur
+                            matchsDuJour.push(`<span class="match-ephemeride">⚽ (${competition}) ${domicile} ${score} ${exterieur}</span>`);
                         }
                     }
                 }
