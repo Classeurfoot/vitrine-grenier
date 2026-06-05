@@ -514,7 +514,6 @@
 </head>
 <body>
 
-    <!-- MENU DE NAVIGATION (SILOS) -->
     <nav class="main-nav">
         <ul>
             <li><a href="index.html" class="active">Accueil</a></li>
@@ -524,7 +523,6 @@
         </ul>
     </nav>
 
-    <!-- BANDEAU ÉPHÉMÉRIDE DYNAMIQUE -->
     <div class="ticker-wrap">
         <div class="ticker-heading" id="date-du-jour">📅 Ce jour-là :</div>
         <div class="ticker">
@@ -561,7 +559,6 @@
             <img src="https://raw.githubusercontent.com/Classeurfoot/vitrine-grenier/main/logospagevitrine/real.webp" alt="Real Madrid" loading="lazy">
         </div>
 
-        <!-- SECTION LA PÉPITE DU MOIS -->
         <div class="pepite-section">
             <div class="pepite-header">
                 <span class="pepite-badge">🔥 La Pépite du Mois</span>
@@ -612,7 +609,7 @@
                     <details class="article-details">
                         <summary>⬇️ Lire la suite / Réduire</summary>
                         <div style="margin-top: 15px;">
-                            <p>Pourtant, cette saison restera dans les mémoires comme un chef-d'œuvre maudit : un football total, des retournements de situation irrationnels, une ville de Marseille en fusion, mais au bout du compte, des larmes et des médailles d'argent. Plongez dans archives du football vintage et redécouvrez l'équipe de Rolland Courbis, un groupe qui n'a rien gagné sur le papier, mais qui a conquis le cœur de toute une génération.</p>
+                            <p>Pourtant, cette saison restera dans les mémoires comme un chef-d'œuvre maudit : un football total, des retournements de situation irrationnels, une ville de Marseille en fusion, mais au bout du compte, des larmes et des médailles d'argent. Plongez dans les archives du football vintage et redécouvrez l'équipe de Rolland Courbis, un groupe qui n'a rien gagné sur le papier, mais qui a conquis le cœur de toute une génération.</p>
                             <p style="color: #fff; font-weight: bold;">🌟 Le casting XXL : Les "Galactiques" de la Canebière</p>
                             <p>À l'été 1998, Rolland Courbis, le truculent "Coach", façonne un effectif qui ressemble à une équipe de jeu vidéo d'époque. Sur le papier, l'armada de l'Olympique de Marseille donne tout simplement le vertige aux défenses de l'Hexagone.</p>
                             <p>La charnière dorée : Laurent Blanc, fraîchement couronné sur le toit du monde, s'installe en patron absolu de la défense, apportant son flegme et sa relance légendaire.</p>
@@ -672,7 +669,7 @@
                         <summary>⬇️ Lire la suite / Réduire</summary>
                         <div style="margin-top: 15px;">
                             <p>Si tout le monde se rappelle de 1993, notre football regorge de parcours héroïques, d'exploits majeurs et de tragédies magnifiques qui ont fini par s'effacer des mémoires. Sortons les cartons du fond de la pièce, c'est l'heure de redonner vie à une Coupe d'Europe retro comme on n'en fera plus.</p>
-                            <p style="color: #fff; font-weight: bold;">Le printemps de tous les miracles : Bordeaux 1996 et Monaco 2004</p>
+                            <p style="color: #fff; font-weight: bold;">Le printemps de tous miracles : Bordeaux 1996 et Monaco 2004</p>
                             <p>S'il y a bien un exploit qui mérite de figurer dans la collection de tout amoureux de football vintage, c'est l'épopée des Girondins de Bordeaux 1996 en Coupe UEFA. Qualifiés via le mystérieux Intertoto, les Bordelais se retrouvent en quarts de finale face au grand AC Milan de Maldini et Baresi. Battus 2-0 à l'aller, les Marine et Blanc signent un match retour légendaire au Parc Lescure : une victoire 3-0 portée par un jeune entraîneur nommé Rolland Courbis, les déboulés de Christophe Dugarry et la patte technique d'un certain Zinédine Zidane. Un match complet de club français d'une intensité absolue, disponible dans nos rayons.</p>
                             <p>Quelques années plus tard, c'est l'AS Monaco 2004 en Ligue des Champions qui fait souffler un vent de folie sur l'Europe. Guidés par Didier Deschamps, les Monégasques éliminent coup sur coup le Real Madrid des Galactiques et le Chelsea naissant de Claudio Ranieri. La chevelure au vent de Ludovic Giuly, le sens du but de Fernando Morientes, les centres au cordeau de Jérôme Rothen... Ce parcours jusqu'en finale reste l'une des plus belles odes au football offensif des vingt dernières années.</p>
                             <p style="color: #fff; font-weight: bold;">La beauté tragique : L'OM 1991 et les pionniers de Bastia</p>
@@ -760,7 +757,6 @@
             </div>
         </section>
 
-        <!-- SECTION AVIS / PREUVE SOCIALE -->
         <section id="avis">
             <h2>⭐ La parole aux passionnés</h2>
             <div class="reviews-grid">
@@ -815,14 +811,12 @@
 
     </div>
 
-    <!-- BOUTON RETOUR EN HAUT -->
     <button id="btn-back-to-top" title="Retour en haut">⬆️</button>
 
     <script>
         // SCRIPT POUR LE BOUTON FLOTTANT
         let mybutton = document.getElementById("btn-back-to-top");
 
-        // Quand l'utilisateur scroll de 300px vers le bas, on affiche le bouton
         window.onscroll = function() {
             if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
                 mybutton.style.display = "block";
@@ -831,7 +825,6 @@
             }
         };
 
-        // Quand l'utilisateur clique sur le bouton, on remonte en douceur (smooth)
         mybutton.onclick = function() {
             window.scrollTo({
                 top: 0,
@@ -840,39 +833,42 @@
         };
     </script>
 
-    <!-- SCRIPT POUR L'ÉPHÉMÉRIDE -->
     <script>
-        // 1. LIEN VERS TON FICHIER CSV (À REMPLACER AVEC TON VRAI LIEN RAW GITHUB)
-        const urlCSV = "METS_LE_LIEN_RAW_GITHUB_DE_TON_CSV_ICI";
+        // 1. LE LIEN VERS TON FICHIER LOCAL
+        const urlCSV = "matchs.csv";
 
-        // 2. Formater la date du jour (Jour et Mois)
+        // 2. FORMATER LA DATE DU JOUR
         const aujourdhui = new Date();
         const jour = String(aujourdhui.getDate()).padStart(2, '0');
         const mois = String(aujourdhui.getMonth() + 1).padStart(2, '0');
         
-        // Ex: On cherche "05/06" pour le 5 Juin
+        // RECHERCHE : Format "DD/MM" (ex: 05/06)
         const rechercheDate = `${jour}/${mois}`; 
         
         document.getElementById('date-du-jour').innerHTML = `📅 Ce jour-là (${jour}/${mois}) :`;
 
-        // 3. Lire et filtrer le CSV
+        // 3. LIRE ET FILTRER LE CSV
         fetch(urlCSV)
             .then(response => response.text())
             .then(data => {
-                // Attention : remplacer '\n' par le bon saut de ligne si besoin et la ',' par le bon séparateur (ex: ';')
                 const lignes = data.split('\n');
                 let matchsDuJour = [];
 
+                // On commence à i=1 pour ignorer la première ligne du CSV (les titres des colonnes)
                 for (let i = 1; i < lignes.length; i++) {
-                    const colonnes = lignes[i].split(','); // Séparateur de colonnes
+                    // Séparateur point-virgule (adapté à ton CSV)
+                    const colonnes = lignes[i].split(';'); 
                     
-                    if (colonnes.length > 3) {
-                        const dateMatch = colonnes[0]; // On suppose que la Date est la colonne 1 (index 0)
+                    // On s'assure qu'on a bien accès aux colonnes (Date = 5, Domicile = 6, Extérieur = 7)
+                    if (colonnes.length > 7) {
+                        const dateMatch = colonnes[5]; 
                         
-                        if (dateMatch.includes(rechercheDate)) {
-                            const domicile = colonnes[1]; // Équipe 1 (colonne 2)
-                            const exterieur = colonnes[2]; // Équipe 2 (colonne 3)
-                            const annee = dateMatch.substring(6, 10); // Extrait l'année (à adapter)
+                        if (dateMatch && dateMatch.includes(rechercheDate)) {
+                            const domicile = colonnes[6]; 
+                            const exterieur = colonnes[7]; 
+                            
+                            // On extrait l'année : "DD/MM/YYYY" => on récupère "YYYY" (les 4 derniers caractères)
+                            const annee = dateMatch.substring(6, 10); 
                             
                             matchsDuJour.push(`<span class="match-ephemeride">⚽ ${domicile} - ${exterieur} (${annee})</span>`);
                         }
