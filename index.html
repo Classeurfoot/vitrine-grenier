@@ -96,48 +96,6 @@
             margin-bottom: 20px;
         }
 
-        /* NOUVEAU : BARRE DE RECHERCHE FRONTALE */
-        .search-container {
-            margin: 25px auto;
-            max-width: 600px;
-            display: flex;
-            gap: 10px;
-            justify-content: center;
-        }
-
-        .search-input {
-            flex: 1;
-            padding: 14px 20px;
-            border-radius: 8px;
-            border: 1px solid var(--border);
-            background-color: var(--card-bg);
-            color: var(--text);
-            font-size: 1rem;
-            transition: border-color 0.3s;
-        }
-
-        .search-input:focus {
-            outline: none;
-            border-color: var(--primary);
-        }
-
-        .search-btn {
-            background-color: var(--primary);
-            color: white;
-            border: none;
-            padding: 14px 25px;
-            border-radius: 8px;
-            font-weight: bold;
-            font-size: 1rem;
-            cursor: pointer;
-            transition: background-color 0.3s ease, transform 0.2s;
-        }
-
-        .search-btn:hover {
-            background-color: var(--primary-hover);
-            transform: translateY(-2px);
-        }
-
         .btn-cta {
             background-color: #2e7d32;
             color: white;
@@ -188,7 +146,7 @@
             transform: scale(1.05);
         }
 
-        /* NOUVEAU : LA PÉPITE DU MOIS */
+        /* LA PÉPITE DU MOIS */
         .pepite-section {
             background: linear-gradient(135deg, #18181c 0%, #2a1b0a 100%);
             border: 1px solid var(--primary);
@@ -394,7 +352,6 @@
             .logo-banner img { height: 40px; }
             .grid-2 { grid-template-columns: 1fr; }
             .blog-grid { grid-template-columns: 1fr; }
-            .search-container { flex-direction: column; padding: 0 10px; }
             .pepite-header { flex-direction: column; align-items: flex-start; }
             
             #btn-back-to-top {
@@ -423,13 +380,7 @@
                 <p><b>Téléchargez vos matchs vintage préférés, complétez votre collection, ou proposez vos propres vidéos pour un échange entre passionnés.</b></p>
             </div>
 
-            <!-- NOUVEAU : BARRE DE RECHERCHE -->
-            <form class="search-container" action="https://legrenierdufootball.streamlit.app/" method="GET" target="_blank">
-                <input type="text" name="search" class="search-input" placeholder="Ex: Zidane 1998, Finale LDC, OM Milan..." required>
-                <button type="submit" class="search-btn">🔍 Chercher</button>
-            </form>
-            
-            <a href="https://legrenierdufootball.streamlit.app/" class="btn-cta">⚽ Ou découvrez le catalogue complet</a>
+            <a href="https://legrenierdufootball.streamlit.app/" class="btn-cta">⚽ Découvrez le catalogue complet</a>
         </header>
 
         <div class="logo-banner">
@@ -442,14 +393,14 @@
             <img src="https://raw.githubusercontent.com/Classeurfoot/vitrine-grenier/main/logospagevitrine/real.webp" alt="Real Madrid" loading="lazy">
         </div>
 
-        <!-- NOUVEAU : SECTION LA PÉPITE DU MOIS -->
+        <!-- SECTION LA PÉPITE DU MOIS -->
         <div class="pepite-section">
             <div class="pepite-header">
                 <span class="pepite-badge">🔥 La Pépite du Mois</span>
                 <h3 class="pepite-title">Colombie - Cameroun (Coupe des Confédérations 2003)</h3>
             </div>
             <div class="pepite-meta">
-                💿 <strong>Format :</strong> DVD Original &nbsp;|&nbsp; 🎙️ <strong>Commentaires :</strong> Français (Eurosport)
+                💿 <strong>Format :</strong> DVD Vidéo Original (.VOB) &nbsp;|&nbsp; 🎙️ <strong>Commentaires :</strong> Français (Eurosport)
             </div>
             <p>Le 26 juin 2003, la demi-finale de la Coupe des Confédérations entre la Colombie et le Cameroun au Stade de Gerland bascule dans l'effroi. À la 72ème minute, le milieu de terrain camerounais Marc-Vivien Foé s'effondre tragiquement sur la pelouse. Ce match, finalement remporté 1-0 par les Lions Indomptables, reste à jamais gravé dans la mémoire collective non pas pour l'enjeu sportif, mais pour la perte brutale d'un grand nom du football.</p>
             <p>Une archive bouleversante et un témoignage historique inestimable à conserver précieusement dans votre collection en hommage au regretté numéro 17.</p>
@@ -547,7 +498,7 @@
                 <article class="blog-article">
                     <div class="blog-meta">📅 Chronique #5 • COUPE D'EUROPE</div>
                     <h3>Les Épopées Françaises Oubliées en Coupe d’Europe : Quand l'Hexagone faisait trembler les géants</h3>
-                    <p>Avant que les pétrodollars et les budgets à rallonge ne viennent cadenasser le dernier carré de la Ligue des Champions, le football européen était une terre d'aventures. Une époque bénie où les clubs français, armés de malice, de centres de formation dorés et de stades en fusion, s'en allaient découper les monstres sacrés du continent.</p>
+                    <p>Avant que les pétrodollars et les budgets à rallonge ne viennent cadenasser le dernier carré de la Ligue Champions, le football européen était une terre d'aventures. Une époque bénie où les clubs français, armés de malice, de centres de formation dorés et de stades en fusion, s'en allaient découper les monstres sacrés du continent.</p>
 
                     <details class="article-details">
                         <summary>⬇️ Lire la suite / Réduire</summary>
