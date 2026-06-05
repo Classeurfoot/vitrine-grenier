@@ -96,6 +96,48 @@
             margin-bottom: 20px;
         }
 
+        /* NOUVEAU : BARRE DE RECHERCHE FRONTALE */
+        .search-container {
+            margin: 25px auto;
+            max-width: 600px;
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+        }
+
+        .search-input {
+            flex: 1;
+            padding: 14px 20px;
+            border-radius: 8px;
+            border: 1px solid var(--border);
+            background-color: var(--card-bg);
+            color: var(--text);
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+
+        .search-input:focus {
+            outline: none;
+            border-color: var(--primary);
+        }
+
+        .search-btn {
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            padding: 14px 25px;
+            border-radius: 8px;
+            font-weight: bold;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s;
+        }
+
+        .search-btn:hover {
+            background-color: var(--primary-hover);
+            transform: translateY(-2px);
+        }
+
         .btn-cta {
             background-color: #2e7d32;
             color: white;
@@ -144,6 +186,50 @@
             filter: grayscale(0%);
             opacity: 1;
             transform: scale(1.05);
+        }
+
+        /* NOUVEAU : LA PÉPITE DU MOIS */
+        .pepite-section {
+            background: linear-gradient(135deg, #18181c 0%, #2a1b0a 100%);
+            border: 1px solid var(--primary);
+            border-radius: 12px;
+            padding: 30px;
+            margin: 0 auto 50px;
+            text-align: left;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .pepite-header {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .pepite-badge {
+            background-color: var(--primary);
+            color: white;
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .pepite-title {
+            margin: 0;
+            color: #fff;
+            font-size: 1.6rem;
+        }
+
+        .pepite-meta {
+            font-size: 0.95rem;
+            color: #fbbf24;
+            margin-bottom: 15px;
+            font-weight: 500;
         }
 
         /* SECTIONS */
@@ -203,12 +289,11 @@
             cursor: pointer;
             padding-top: 15px;
             margin-top: auto;
-            list-style: none; /* Retire la flèche standard */
+            list-style: none;
             outline: none;
             display: block;
         }
 
-        /* Masque la flèche noire sur les navigateurs Webkit (Chrome, Safari, Edge) */
         .article-details summary::-webkit-details-marker {
             display: none;
         }
@@ -233,7 +318,7 @@
             color: #fff;
         }
 
-        /* NOUVEAU : STYLE SECTION AVIS */
+        /* STYLE SECTION AVIS */
         .reviews-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -251,7 +336,7 @@
         }
 
         .stars {
-            color: #fbbf24; /* Couleur or */
+            color: #fbbf24;
             font-size: 1.2rem;
             margin-bottom: 10px;
         }
@@ -263,12 +348,12 @@
             font-style: normal;
         }
 
-        /* NOUVEAU : STYLE BOUTON RETOUR EN HAUT */
+        /* STYLE BOUTON RETOUR EN HAUT */
         #btn-back-to-top {
             position: fixed;
             bottom: 30px;
             right: 30px;
-            display: none; /* Masqué par défaut */
+            display: none;
             background-color: var(--primary);
             color: white;
             border: none;
@@ -309,6 +394,8 @@
             .logo-banner img { height: 40px; }
             .grid-2 { grid-template-columns: 1fr; }
             .blog-grid { grid-template-columns: 1fr; }
+            .search-container { flex-direction: column; padding: 0 10px; }
+            .pepite-header { flex-direction: column; align-items: flex-start; }
             
             #btn-back-to-top {
                 bottom: 20px;
@@ -335,8 +422,14 @@
                 <p>Revivez en vidéo les rencontres historiques de la <i>Coupe du Monde</i>, de la <i>Ligue des Champions</i> et des grands championnats européens. De l'Équipe de France aux clubs de légende, l'Histoire du foot est ici.</p>
                 <p><b>Téléchargez vos matchs vintage préférés, complétez votre collection, ou proposez vos propres vidéos pour un échange entre passionnés.</b></p>
             </div>
+
+            <!-- NOUVEAU : BARRE DE RECHERCHE -->
+            <form class="search-container" action="https://legrenierdufootball.streamlit.app/" method="GET" target="_blank">
+                <input type="text" name="search" class="search-input" placeholder="Ex: Zidane 1998, Finale LDC, OM Milan..." required>
+                <button type="submit" class="search-btn">🔍 Chercher</button>
+            </form>
             
-            <a href="https://legrenierdufootball.streamlit.app/" class="btn-cta">⚽ Découvrez le catalogue complet</a>
+            <a href="https://legrenierdufootball.streamlit.app/" class="btn-cta">⚽ Ou découvrez le catalogue complet</a>
         </header>
 
         <div class="logo-banner">
@@ -347,6 +440,19 @@
             <img src="https://raw.githubusercontent.com/Classeurfoot/vitrine-grenier/main/logospagevitrine/om.webp" alt="Olympique de Marseille" loading="lazy">
             <img src="https://raw.githubusercontent.com/Classeurfoot/vitrine-grenier/main/logospagevitrine/psg.webp" alt="Paris Saint-Germain" loading="lazy">
             <img src="https://raw.githubusercontent.com/Classeurfoot/vitrine-grenier/main/logospagevitrine/real.webp" alt="Real Madrid" loading="lazy">
+        </div>
+
+        <!-- NOUVEAU : SECTION LA PÉPITE DU MOIS -->
+        <div class="pepite-section">
+            <div class="pepite-header">
+                <span class="pepite-badge">🔥 La Pépite du Mois</span>
+                <h3 class="pepite-title">Colombie - Cameroun (Coupe des Confédérations 2003)</h3>
+            </div>
+            <div class="pepite-meta">
+                💿 <strong>Format :</strong> DVD Original &nbsp;|&nbsp; 🎙️ <strong>Commentaires :</strong> Français (Eurosport)
+            </div>
+            <p>Le 26 juin 2003, la demi-finale de la Coupe des Confédérations entre la Colombie et le Cameroun au Stade de Gerland bascule dans l'effroi. À la 72ème minute, le milieu de terrain camerounais Marc-Vivien Foé s'effondre tragiquement sur la pelouse. Ce match, finalement remporté 1-0 par les Lions Indomptables, reste à jamais gravé dans la mémoire collective non pas pour l'enjeu sportif, mais pour la perte brutale d'un grand nom du football.</p>
+            <p>Une archive bouleversante et un témoignage historique inestimable à conserver précieusement dans votre collection en hommage au regretté numéro 17.</p>
         </div>
 
         <section id="blog" style="border-top: none; padding-top: 0;">
@@ -425,7 +531,7 @@
                         <div style="margin-top: 15px;">
                             <p>Aujourd'hui, le football se consomme en Ultra HD, décortiqué par des palettes graphiques en 3D et commenté sur un ton standardisé. Mais pour les puristes, la vraie magie du football rétro ne réside pas seulement dans le jeu : elle se trouve dans les voix qui ont bercé nos soirées d'enfance.</p>
                             <p style="color: #fff; font-weight: bold;">Le choc des duos : De la passion de TF1 au ton révolutionnaire de Canal+</p>
-                            <p>Quand on replonge dans un match avec commentaires français des années 90, on cherche avant tout une ambiance. Qui a oublié le mythique duo Thierry Roland Jean Michel Larqué ? Le premier balançait ses envolées lyriques viscérales et ses petites phrases aujourd'hui interdites, tandis que le second analysait le jeu avec son légendaire "Tout à fait Thierry". Ce duo, c'était le canapé du salon, la France qui vibrait d'un seul bloc derrière son écran sur un TF1 foot d'époque.</p>
+                            <p>Quand on replonge dans un match avec commentaires français des années 90, on cherche avant tout une ambiance. Qui a oublié le mythique duo Thierry Roland Jean Michel Larqué ? Le premier balançait ses envolées lyriques viscérales et ses petites phrases aujourd'hui interdites, tandis que le second analysait le jeu avec son légendaire "Tout à fait Thierry". Ce duo, c'tait le canapé du salon, la France qui vibrait d'un seul bloc derrière son écran sur un TF1 foot d'époque.</p>
                             <p>Mais le grand frisson vintage, c'est aussi l'école Canal plus retro. Menée par la rigueur de Charles Biétry puis sublimée par le regretté Thierry Gilardi, la chaîne cryptée a réinventé la manière de vivre le football. Un ton plus rythmé, une expertise folle, et une tension palpable dès le fameux générique du grand match du samedi soir. Revivre un match complet commenté par ces monstres sacrés du micro, c'est s'offrir un aller simple pour une époque où le football avait une âme unique.</p>
                             <p style="color: #fff; font-weight: bold;">Pourquoi un résumé YouTube ne remplacera jamais un match d'époque</p>
                             <p>On nous dit souvent : "Pourquoi s'embêter à regarder une archive complète alors qu'il y a des résumés de 3 minutes sur internet ?". La réponse est simple : parce que le patrimoine se cache dans les détails.</p>
@@ -535,7 +641,7 @@
             </div>
         </section>
 
-        <!-- NOUVELLE SECTION AVIS / PREUVE SOCIALE -->
+        <!-- SECTION AVIS / PREUVE SOCIALE -->
         <section id="avis">
             <h2>⭐ La parole aux passionnés</h2>
             <div class="reviews-grid">
