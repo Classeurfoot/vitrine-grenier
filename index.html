@@ -14,6 +14,787 @@
     <meta property="og:url" content="https://legrenierdufootball.com">
     <meta property="og:type" content="website">
 
+    <!-- 🤖 NOUVEAU : DONNÉES STRUCTURÉES COMPLÈTES (WEBSITE + PRODUIT + BLOG) -->
+    <script type="application/ld+json">
+    [
+      {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "Le Grenier du Football",
+        "url": "https://legrenierdufootball.com",
+        "description": "Boutique et catalogue d'archives de matchs de football rétro numérisés depuis des cassettes VHS et DVD.",
+        "potentialAction": {
+          "@type": "SearchAction",
+          "target": "https://legrenierdufootball.streamlit.app/?search={search_term_string}",
+          "query-input": "required name=search_term_string"
+        }
+      },
+      {
+        "@context": "https://schema.org",
+        "@type": "Product",
+        "name": "Archive de Match de Football Rétro",
+        "description": "Matchs de football complets historiques numérisés depuis cassettes VHS et DVD d'époque.",
+        "image": "https://raw.githubusercontent.com/Classeurfoot/mon-app-foot/main/logo.png",
+        "brand": {
+          "@type": "Brand",
+          "name": "Le Grenier du Football"
+        },
+        "offers": [
+          {
+            "@type": "Offer",
+            "name": "Format Numérique (MP4/AVI)",
+            "priceCurrency": "EUR",
+            "price": "3.00",
+            "availability": "https://schema.org/InStock",
+            "url": "https://legrenierdufootball.com"
+          },
+          {
+            "@type": "Offer",
+            "name": "Format DVD Original (.VOB)",
+            "priceCurrency": "EUR",
+            "price": "5.00",
+            "availability": "https://schema.org/InStock",
+            "url": "https://legrenierdufootball.com"
+          }
+        ],
+        "aggregateRating": {
+          "@type": "AggregateRating",
+          "ratingValue": "5",
+          "reviewCount": "3"
+        }
+      },
+      {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "headline": "Didier Deschamps : Le baisser de rideau du gagneur ultime du football français",
+        "image": "https://raw.githubusercontent.com/Classeurfoot/mon-app-foot/main/logo.png",
+        "author": {
+          "@type": "Organization",
+          "name": "L'Archiviste du Grenier"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "Le Grenier du Football",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "https://raw.githubusercontent.com/Classeurfoot/mon-app-foot/main/logo.png"
+          }
+        },
+        "datePublished": "2026-06-05",
+        "description": "Retour sur le palmarès de joueur et d'entraîneur inégalé de Didier Deschamps, et revivez ses matchs historiques en vidéo."
+      }
+    ]
+    </script>
+
+    <style>
+        :root {
+            --bg-color: #0e0e11;
+            --card-bg: #18181c;
+            --primary: #d97706;
+            --primary-hover: #b45f06;
+            --text: #fafafa;
+            --text-muted: #a1a1aa;
+            --border: #2d2d34;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text);
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
+
+        /* NOUVEAU : STYLE DE LA NAVIGATION (SILOS) */
+        .main-nav {
+            background-color: var(--card-bg);
+            border-bottom: 1px solid var(--border);
+            padding: 15px 20px;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+        }
+
+        .main-nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 25px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .main-nav a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            transition: color 0.3s ease;
+        }
+
+        .main-nav a:hover, .main-nav a.active {
+            color: var(--primary);
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* HERO SECTION */
+        header {
+            text-align: center;
+            padding: 40px 20px 30px;
+        }
+
+        .header-title-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 25px;
+        }
+
+        .logo-lgf {
+            width: 110px;
+            height: 110px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            color: var(--text);
+            margin: 0;
+            font-weight: 700;
+        }
+
+        .streamlit-text {
+            max-width: 850px;
+            margin: 0 auto;
+            font-size: 16px;
+            color: var(--text);
+            line-height: 1.6;
+            text-align: center;
+        }
+
+        .streamlit-text p {
+            margin-bottom: 20px;
+        }
+
+        .btn-cta {
+            background-color: #2e7d32;
+            color: white;
+            padding: 14px 32px;
+            text-decoration: none;
+            font-size: 1.1rem;
+            font-weight: bold;
+            border-radius: 8px;
+            display: inline-block;
+            margin-top: 10px;
+            box-shadow: 0 4px 15px rgba(46, 125, 50, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .btn-cta:hover {
+            background-color: #1b5e20;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(46, 125, 50, 0.5);
+        }
+
+        /* BANDEAU DE RÉASSURANCE (LOGOS) */
+        .logo-banner {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 45px;
+            margin: 40px auto 50px;
+            padding: 25px 15px;
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+            max-width: 900px;
+        }
+
+        .logo-banner img {
+            height: 55px;
+            width: auto;
+            object-fit: contain;
+            filter: grayscale(100%);
+            opacity: 0.5;
+            transition: all 0.4s ease;
+            border-radius: 6px;
+        }
+
+        .logo-banner img:hover {
+            filter: grayscale(0%);
+            opacity: 1;
+            transform: scale(1.05);
+        }
+
+        /* LA PÉPITE DU MOIS */
+        .pepite-section {
+            background: linear-gradient(135deg, #18181c 0%, #2a1b0a 100%);
+            border: 1px solid var(--primary);
+            border-radius: 12px;
+            padding: 30px;
+            margin: 0 auto 50px;
+            text-align: left;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .pepite-header {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .pepite-badge {
+            background-color: var(--primary);
+            color: white;
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .pepite-title {
+            margin: 0;
+            color: #fff;
+            font-size: 1.6rem;
+        }
+
+        .pepite-meta {
+            font-size: 0.95rem;
+            color: #fbbf24;
+            margin-bottom: 15px;
+            font-weight: 500;
+        }
+
+        /* SECTIONS */
+        section {
+            padding: 40px 0;
+            border-top: 1px solid var(--border);
+        }
+
+        h2 {
+            font-size: 1.8rem;
+            color: var(--primary);
+            margin-bottom: 30px;
+            font-weight: 600;
+        }
+
+        /* STYLE DU BLOG EN GRILLE 2 COLONNES ALIGNÉES */
+        .blog-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 25px;
+        }
+
+        .blog-article {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 25px;
+            text-align: left;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .blog-meta {
+            font-size: 0.85rem;
+            color: var(--primary);
+            margin-bottom: 8px;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        .blog-article h3 {
+            margin: 0 0 12px 0;
+            font-size: 1.4rem;
+            color: #fff;
+        }
+
+        .blog-article p {
+            color: var(--text-muted);
+            margin-bottom: 12px;
+            font-size: 0.95rem;
+        }
+
+        /* OPTIMISATION TECHNIQUE DU TEXTE DEPLIABLE NATIF (DETAILS/SUMMARY) */
+        .article-details summary {
+            color: var(--primary);
+            font-weight: bold;
+            cursor: pointer;
+            padding-top: 15px;
+            margin-top: auto;
+            list-style: none;
+            outline: none;
+            display: block;
+        }
+
+        .article-details summary::-webkit-details-marker {
+            display: none;
+        }
+
+        /* LES INFOS DU GRENIER */
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 25px;
+        }
+
+        .info-card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 20px;
+            text-align: left;
+        }
+
+        .info-card h3 {
+            margin-top: 0;
+            color: #fff;
+        }
+
+        /* STYLE SECTION AVIS */
+        .reviews-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        .review-card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 20px;
+            font-style: italic;
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        .stars {
+            color: #fbbf24;
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+        }
+
+        .review-author {
+            margin-top: 15px;
+            font-weight: 600;
+            color: var(--text);
+            font-style: normal;
+        }
+
+        /* STYLE BOUTON RETOUR EN HAUT */
+        #btn-back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            display: none;
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            font-size: 24px;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+            z-index: 1000;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        #btn-back-to-top:hover {
+            background-color: var(--primary-hover);
+            transform: translateY(-5px);
+        }
+
+        /* FOOTER */
+        footer {
+            text-align: center;
+            padding: 40px 20px 20px;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            border-top: 1px solid var(--border);
+        }
+
+        footer a {
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        /* ADAPTATION POUR SMARTPHONE */
+        @media (max-width: 768px) {
+            .header-title-container { flex-direction: column; gap: 10px; }
+            h1 { font-size: 1.8rem; text-align: center; }
+            .logo-banner { gap: 20px; padding: 15px 10px; }
+            .logo-banner img { height: 40px; }
+            .grid-2 { grid-template-columns: 1fr; }
+            .blog-grid { grid-template-columns: 1fr; }
+            .pepite-header { flex-direction: column; align-items: flex-start; }
+            .main-nav ul { flex-direction: column; gap: 10px; align-items: center; }
+            
+            #btn-back-to-top {
+                bottom: 20px;
+                right: 20px;
+                width: 45px;
+                height: 45px;
+                font-size: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- NOUVEAU : MENU DE NAVIGATION (SILOS) -->
+    <nav class="main-nav">
+        <ul>
+            <li><a href="#" class="active">Accueil</a></li>
+            <li><a href="#">Archives OM</a></li>
+            <li><a href="#">Archives PSG</a></li>
+            <li><a href="#">Les Mondiaux</a></li>
+            <li><a href="#">Format Vidéo (.VOB)</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        
+        <header>
+            <div class="header-title-container">
+                <img src="https://raw.githubusercontent.com/Classeurfoot/mon-app-foot/main/logo.png" alt="Le Grenier du Football - Boutique d'archives et vidéos de matchs de foot rétro" class="logo-lgf" loading="lazy">
+                <h1>Le Grenier du Football</h1>
+            </div>
+            
+            <div class="streamlit-text">
+                <p>Découvrez un grand choix d'<b>archives de matchs de football rétro</b>. Explorez un catalogue interactif de près de <b>5000 matchs classiques</b>, numérisés à partir de véritables <b>cassettes VHS et DVD</b>.</p>
+                <p>Revivez en vidéo les rencontres historiques de la <i>Coupe du Monde</i>, de la <i>Ligue des Champions</i> et des grands championnats européens. De l'Équipe de France aux clubs de légende, l'Histoire du foot est ici.</p>
+                <p><b>Téléchargez vos matchs vintage préférés, complétez votre collection, ou proposez vos propres vidéos pour un échange entre passionnés.</b></p>
+            </div>
+
+            <a href="https://legrenierdufootball.streamlit.app/" class="btn-cta">⚽ Découvrez le catalogue complet</a>
+        </header>
+
+        <div class="logo-banner">
+            <img src="https://raw.githubusercontent.com/Classeurfoot/vitrine-grenier/main/logospagevitrine/98.webp" alt="Coupe du Monde 98" loading="lazy">
+            <img src="https://raw.githubusercontent.com/Classeurfoot/vitrine-grenier/main/logospagevitrine/2006.webp" alt="Coupe du Monde 2006" loading="lazy">
+            <img src="https://raw.githubusercontent.com/Classeurfoot/vitrine-grenier/main/logospagevitrine/ldc.webp" alt="Ligue des Champions" loading="lazy">
+            <img src="https://raw.githubusercontent.com/Classeurfoot/vitrine-grenier/main/logospagevitrine/milan.webp" alt="AC Milan" loading="lazy">
+            <img src="https://raw.githubusercontent.com/Classeurfoot/vitrine-grenier/main/logospagevitrine/om.webp" alt="Olympique de Marseille" loading="lazy">
+            <img src="https://raw.githubusercontent.com/Classeurfoot/vitrine-grenier/main/logospagevitrine/psg.webp" alt="Paris Saint-Germain" loading="lazy">
+            <img src="https://raw.githubusercontent.com/Classeurfoot/vitrine-grenier/main/logospagevitrine/real.webp" alt="Real Madrid" loading="lazy">
+        </div>
+
+        <!-- SECTION LA PÉPITE DU MOIS -->
+        <div class="pepite-section">
+            <div class="pepite-header">
+                <span class="pepite-badge">🔥 La Pépite du Mois</span>
+                <h3 class="pepite-title">Colombie - Cameroun (Coupe des Confédérations 2003)</h3>
+            </div>
+            <div class="pepite-meta">
+                💿 <strong>Format :</strong> DVD Vidéo Original (.VOB) &nbsp;|&nbsp; 🎙️ <strong>Commentaires :</strong> Français (Eurosport)
+            </div>
+            <p>Le 26 juin 2003, la demi-finale de la Coupe des Confédérations entre la Colombie et le Cameroun au Stade de Gerland bascule dans l'effroi. À la 72ème minute, le milieu de terrain camerounais Marc-Vivien Foé s'effondre tragiquement sur la pelouse. Ce match, finalement remporté 1-0 par les Lions Indomptables, reste à jamais gravé dans la mémoire collective non pas pour l'enjeu sportif, mais pour la perte brutale d'un grand nom du football.</p>
+            <p>Une archive bouleversante et un témoignage historique inestimable à conserver précieusement dans votre collection en hommage au regretté numéro 17.</p>
+        </div>
+
+        <section id="blog" style="border-top: none; padding-top: 0;">
+            <h2>✍️ Le Blog du Grenier : Histoires & Culture Foot Rétro</h2>
+            <div class="blog-grid">
+
+                <article class="blog-article">
+                    <div class="blog-meta">📅 Chronique #8 • LÉGENDES DU FOOTBALL</div>
+                    <h3>Didier Deschamps : Le baisser de rideau du gagneur ultime du football français</h3>
+                    <p>C'est une page immense, vertigineuse, qui se tourne pour le football français. Alors que Didier Deschamps s'apprête à quitter son poste de sélectionneur de l'Équipe de France, c'est tout un pan de notre histoire contemporaine qui range les crampons. Pendant plus d'une décennie sur le banc des Bleus, "DD" a été le visage de la France qui gagne. Mais résumer Deschamps à son seul costume de sélectionneur serait une erreur impardonnable.</p>
+
+                    <details class="article-details">
+                        <summary>⬇️ Lire la suite / Réduire</summary>
+                        <div style="margin-top: 15px;">
+                            <p>Pour les nostalgiques et les fouineurs de bandes VHS, Didier Deschamps, c'est avant tout un palmarès de joueur inégalé, une culture de la gagne forgée dans l'exigence des années 90, et un pragmatisme qui a fait pleurer tout le continent. Retour sur l'itinéraire d'un monstre sacré.</p>
+                            <p style="color: #fff; font-weight: bold;">🛡️ Le Joueur : Le "porteur d'eau" devenu Roi du Monde</p>
+                            <p>Éric Cantona l'avait un jour surnommé, avec un brin de condescendance, le "porteur d'eau". Mais Didier Deschamps a transformé cette étiquette en un véritable art de vivre tactique. Formé à la grande école du jeu à la nantaise, c'est sous le maillot de l'Olympique de Marseille qu'il devient une icône. Capitaine courageux, il soulève la mythique Coupe aux grandes oreilles en 1993, devenant le plus jeune capitaine à remporter la Ligue des Champions.</p>
+                            <p>Mais l'appétit de "Dédé" ne s'arrête pas aux frontières de l'Hexagone. Il s'envole pour la Juventus Turin de Marcello Lippi, où il devient le métronome d'une équipe impitoyable. Avec la Vieille Dame, il roule sur l'Italie et sur l'Europe, remportant une nouvelle Ligue des Champions en 1996.</p>
+                            <p>Et puis, il y a l'apothéose. Le brassard de l'Équipe de France. Ce leader vocal et tactique devient le relais indispensable d'Aimé Jacquet sur le terrain. Il soulève la Coupe du Monde 1998, puis l'Euro 2000, imposant le respect à la planète entière. Revoir un match complet de Didier Deschamps à cette époque, c'est observer une masterclass de placement, d'anticipation et de vice positif.</p>
+                            <p style="color: #fff; font-weight: bold;">👔 L'Entraîneur : Le pragmatisme érigé en chef-d'œuvre</p>
+                            <p>Ranger les crampons n'a pas calmé sa soif de victoire. Passé de l'autre côté de la ligne de touche, Deschamps devient un bâtisseur de succès. Il emmène d'abord l'AS Monaco dans une épopée irrationnelle jusqu'en finale de la Ligue des Champions en 2004 (une campagne légendaire que tout fan de football vintage se doit de posséder).</p>
+                            <p>Il ramène ensuite la Juventus en Serie A après le scandale du Calciopoli, puis accomplit un autre miracle : offrir à l'Olympique de Marseille son premier titre de Champion de France (2010) après 17 ans de disette.</p>
+                            <p>En 2012, il prend les rênes d'une Équipe de France en pleine reconstruction. La suite appartient à l'Histoire. Il insuffle son ADN de gagneur à une nouvelle génération, bâtissant une machine froide, solidaire et chirurgicale. Le point d'orgue ? La deuxième étoile accrochée en Russie en 2018. Deschamps rejoint alors le cercle ultra-fermé (avec Zagallo et Beckenbauer) de ceux ayant remporté la Coupe du Monde en tant que joueur et entraîneur. S'il quitte aujourd'hui le banc tricolore, il laisse derrière lui un héritage monumental et une culture de la victoire qui marquera les Bleus pour les décennies à venir.</p>
+                            <p style="color: #fff; font-weight: bold;">📼 Revivez l'ADN Deschamps dans le Grenier</p>
+                            <p>L'histoire de Didier Deschamps ne se lit pas seulement dans les livres de statistiques, elle se visionne. Dans Le Grenier du Football, la trace du capitaine et sélectionneur des Bleus est omniprésente.</p>
+                            <p>Vous voulez revoir le sacre de Munich avec l'OM en 1993 ? Les batailles tactiques de la Juventus Turin des années 90 ? Ou l'épopée fondatrice de Monaco en 2004 ? Utilisez notre outil de Recherche Avancée pour explorer notre catalogue.</p>
+                            <p>Sélectionnez simplement les équipes de sa carrière ou filtrez par la compétition de votre choix. Pour chaque match, vous aurez la liberté de choisir votre format idéal : la pureté absolue du format DVD (fichiers .VOB d'origine) pour retrouver l'image cathodique de l'époque, ou la praticité du format Numérique (MP4, AVI...) pour vos écrans modernes.</p>
+                            <p>Didier Deschamps tire sa révérence, mais ses plus grands combats vous attendent au fond du Grenier. À vous de les revivre !</p>
+                        </div>
+                    </details>
+                </article>
+
+                <article class="blog-article">
+                    <div class="blog-meta">📅 Chronique #7 • SAISONS DE LÉGENDE</div>
+                    <h3>Olympique de Marseille 1998-1999 : La symphonie inachevée de Coach Courbis</h3>
+                    <p>Si le football était un opéra, la saison 1998-1999 de l'Olympique de Marseille en serait la tragédie la plus magnifique. L'année du centenaire du club phocéen (1899-1999) devait être celle de tous les triomphes. Au sortir d'une Coupe du Monde 98 qui a embrasé la France entière, l'OM bâtit une équipe de rêve pour tout écraser sur son passage.</p>
+
+                    <details class="article-details">
+                        <summary>⬇️ Lire la suite / Réduire</summary>
+                        <div style="margin-top: 15px;">
+                            <p>Pourtant, cette saison restera dans les mémoires comme un chef-d'œuvre maudit : un football total, des retournements de situation irrationnels, une ville de Marseille en fusion, mais au bout du compte, des larmes et des médailles d'argent. Plongez dans les archives du football vintage et redécouvrez l'équipe de Rolland Courbis, un groupe qui n'a rien gagné sur le papier, mais qui a conquis le cœur de toute une génération.</p>
+                            <p style="color: #fff; font-weight: bold;">🌟 Le casting XXL : Les "Galactiques" de la Canebière</p>
+                            <p>À l'été 1998, Rolland Courbis, le truculent "Coach", façonne un effectif qui ressemble à une équipe de jeu vidéo d'époque. Sur le papier, l'armada de l'Olympique de Marseille donne tout simplement le vertige aux défenses de l'Hexagone.</p>
+                            <p>La charnière dorée : Laurent Blanc, fraîchement couronné sur le toit du monde, s'installe en patron absolu de la défense, apportant son flegme et sa relance légendaire.</p>
+                            <p>Le milieu de velours : Robert Pirès arrive de Metz pour illuminer le jeu, tandis que le guerrier Jocelyn Gourvennec et le capitaine Éric Roy assurent l'équilibre du bloc de Marseille.</p>
+                            <p>L'attaque de feu : Devant, c'est l'abondance. Christophe Dugarry, Florian Maurice, et surtout l'idole absolue du Vélodrome, le renard argenté Fabrizio Ravanelli ("Penna Bianca").</p>
+                            <p>Revoir un match complet de l'OM version 98-99, c'est admirer une équipe tournée vers l'offensive permanente, capable de déséquilibrer n'importe quel adversaire par des vagues successives.</p>
+                            <p style="color: #fff; font-weight: bold;">⚔️ Division 1 : Le "Match du Siècle" et le duel avec Bordeaux</p>
+                            <p>En championnat, la saison se résume à un mano a mano étouffant avec les Girondins de Bordeaux d'Ali Benarbia et Sylvain Wiltord. Ce duel au sommet va nous offrir quelques-uns des plus beaux matchs de l'histoire de la Division 1.</p>
+                            <p>Mais s'il ne fallait retenir qu'une seule cassette VHS de cette épopée nationale, c'est bien l'irrationnel OM - Montpellier (5-4) du 22 août 1998. Menés 4-0 à la mi-temps au Vélodrome par des Héraultais euphoriques, les joueurs de l'Olympique de Marseille réalisent la "remontada" la plus folle du football français en seconde période, conclue par un penalty libérateur de Laurent Blanc à la 90ème minute.</p>
+                            <p>L'image de Courbis, chemise trempée de sueur, haranguant ses troupes au bord de la pelouse, est le symbole parfait de la folie qui s'était emparée de Marseille cette année-là.</p>
+                            <p>Malheureusement, la symphonie s'enraie lors de l'ultime journée. Malgré une victoire à Nantes, l'OM voit le titre s'envoler à la dernière seconde à cause du but décisif de Pascal Feindouno pour Bordeaux au Parc des Princes. Une blessure toujours ouverte.</p>
+                            <p style="color: #fff; font-weight: bold;">🌍 L'épopée en Coupe UEFA : Le sang, la sueur et les larmes</p>
+                            <p>Si le championnat fut cruel, la campagne européenne de l'Olympique de Marseille en Coupe UEFA fut une véritable odyssée homérique. Le club va enflammer l'Europe entière dans des rencontres à la dramaturgie exceptionnelle, de la phase de poules jusqu'à l'ultime marche.</p>
+                            <p>Revivez au fond de notre catalogue ces soirées continentales d'anthologie :</p>
+                            <p>La furia face au Celta Vigo : Un quart de finale retour bouillant où l'OM renverse les Espagnols dans un Vélodrome incandescent (2-1).</p>
+                            <p>La guerre de Bologne : Une demi-finale sous très haute tension. Après un match nul à l'aller, Marseille arrache sa qualification en Italie (1-1) grâce au sang-froid légendaire de Laurent Blanc sur penalty en toute fin de match. Une rencontre qui se terminera par une célèbre bagarre générale dans le tunnel, marquant les esprits autant que les corps.</p>
+                            <p>La finale maudite (Parme - OM) : Privé de Ravanelli, Gallas, Dugarry et Luccin (tous suspendus après la bataille de Bologne), l'Olympique de Marseille se présente diminué en finale à Moscou face au grand Parme (armé de Buffon, Thuram, Cannavaro, Veron, Crespo, Chiesa). Une défaite 3-0 inéluctable face à ce qui était probablement la meilleure équipe du monde ce soir-là, clôturant la saison sur un goût d'inachevé.</p>
+                            <p style="color: #fff; font-weight: bold;">📼 Dépoussiérez l'histoire avec Le Grenier du Football</p>
+                            <p>Lire les exploits de l'équipe de Courbis, c'est bien. Les revivre dans les conditions de l'époque, c'est le frisson garanti.</p>
+                            <p>Dans Le Grenier du Football, nous avons dépoussiéré ces rencontres mythiques. Rendez-vous dans notre section 🕵️ Recherche Avancée. Il vous suffit de sélectionner l'OM dans les équipes impliquées et de filtrer par la saison "1998/1999" pour retrouver : </p>
+                            <p>Les grands chocs du championnat d'époque avec les retransmissions originales.</p>
+                            <p>L'intégralité du parcours jusqu'à la finale de la Coupe UEFA.</p>
+                            <p>Que vous soyez un puriste à la recherche d'une qualité DVD (fichiers .VOB d'origine) ou que vous préfériez la flexibilité du format Numérique (MP4, AVI...), choisissez le format qui vous convient et ajoutez l'histoire à votre panier. Parce qu'une saison de l'Olympique de Marseille qui vous a fait autant vibrer mérite d'être conservée pour l'éternité.</p>
+                        </div>
+                    </details>
+                </article>
+
+                <article class="blog-article">
+                    <div class="blog-meta">📅 Chronique #6 • TUBE CATHODIQUE</div>
+                    <h3>La Nostalgie du Tube Cathodique : Ces voix d'époque qui font vibrer Le Grenier</h3>
+                    <p>Fermez les yeux deux secondes. Vous entendez ce sifflement aigu caractéristique des téléviseurs à tube cathodique qu’on allume ? Vous revoyez cette image un peu granuleuse, le logo d'une chaîne en haut à droite sans bandeau de score permanent, et cette fameuse prise d'antenne en direct du bus des joueurs ?</p>
+
+                    <details class="article-details">
+                        <summary>⬇️ Lire la suite / Réduire</summary>
+                        <div style="margin-top: 15px;">
+                            <p>Aujourd'hui, le football se consomme en Ultra HD, décortiqué par des palettes graphiques en 3D et commenté sur un ton standardisé. Mais pour les puristes, la vraie magie du football rétro ne réside pas seulement dans le jeu : elle se trouve dans les voix qui ont bercé nos soirées d'enfance.</p>
+                            <p style="color: #fff; font-weight: bold;">Le choc des duos : De la passion de TF1 au ton révolutionnaire de Canal+</p>
+                            <p>Quand on replonge dans un match avec commentaires français des années 90, on cherche avant tout une ambiance. Qui a oublié le mythique duo Thierry Roland Jean Michel Larqué ? Le premier balançait ses envolées lyriques viscérales et ses petites phrases aujourd'hui interdites, tandis que le second analysait le jeu avec son légendaire "Tout à fait Thierry". Ce duo, c'tait le canapé du salon, la France qui vibrait d'un seul bloc derrière son écran sur un TF1 foot d'époque.</p>
+                            <p>Mais le grand frisson vintage, c'est aussi l'école Canal plus retro. Menée par la rigueur de Charles Biétry puis sublimée par le regretté Thierry Gilardi, la chaîne cryptée a réinventé la manière de vivre le football. Un ton plus rythmé, une expertise folle, et une tension palpable dès le fameux générique du grand match du samedi soir. Revivre un match complet commenté par ces monstres sacrés du micro, c'est s'offrir un aller simple pour une époque où le football avait une âme unique.</p>
+                            <p style="color: #fff; font-weight: bold;">Pourquoi un résumé YouTube ne remplacera jamais un match d'époque</p>
+                            <p>On nous dit souvent : "Pourquoi s'embêter à regarder une archive complète alors qu'il y a des résumés de 3 minutes sur internet ?". La réponse est simple : parce que le patrimoine se cache dans les détails.</p>
+                            <p>Sur YouTube, vous avez les buts. Au fond du Grenier, vous avez l'expérience totale : les réactions à chaud des anciens commentateurs football, les ralentis d'époque qui prennent leur temps, la météo annoncée à la mi-temps, et les publicités rétro pour des marques disparues.</p>
+                            <p>Comme vous avez pu le lire dans notre F.A.Q., chaque version TV a son histoire. Une même rencontre peut exister en version italienne parfaite ou en version française un peu usée par le temps sur cassette VHS. Mais c'est précisément ce grain, cette imperfection d'un signal analogique sauvé des eaux, qui fait la valeur d'une collection.</p>
+                            <p style="color: #fff; font-weight: bold;">Vos soirées d'enfance disponibles en un clic</p>
+                            <p>Notre mission au Grenier, c'est de dépoussiérer ces moments suspendus. Nous avons numérisé des milliers de cassettes pour retrouver ces voix d'autrefois.</p>
+                            <p>Que vous choisissiez le format de fichiers numériques légers (mp4, mkv) à regarder sur votre tablette ou la qualité informatique d'origine (fichiers .VOB) pour retrouver le flux vidéo brut sans compression directement sur votre grand écran, nos archives vous attendent. Alors, qu'attendez-vous pour rallumer le tube cathodique ?</p>
+                        </div>
+                    </details>
+                </article>
+
+                <article class="blog-article">
+                    <div class="blog-meta">📅 Chronique #5 • COUPE D'EUROPE</div>
+                    <h3>Les Épopées Françaises Oubliées en Coupe d’Europe : Quand l'Hexagone faisait trembler les géants</h3>
+                    <p>Avant que les pétrodollars et les budgets à rallonge ne viennent cadenasser le dernier carré de la Ligue Champions, le football européen était une terre d'aventures. Une époque bénie où les clubs français, armés de malice, de centres de formation dorés et de stades en fusion, s'en allaient découper les monstres sacrés du continent.</p>
+
+                    <details class="article-details">
+                        <summary>⬇️ Lire la suite / Réduire</summary>
+                        <div style="margin-top: 15px;">
+                            <p>Si tout le monde se rappelle de 1993, notre football regorge de parcours héroïques, d'exploits majeurs et de tragédies magnifiques qui ont fini par s'effacer des mémoires. Sortons les cartons du fond de la pièce, c'est l'heure de redonner vie à une Coupe d'Europe retro comme on n'en fera plus.</p>
+                            <p style="color: #fff; font-weight: bold;">Le printemps de tous les miracles : Bordeaux 1996 et Monaco 2004</p>
+                            <p>S'il y a bien un exploit qui mérite de figurer dans la collection de tout amoureux de football vintage, c'est l'épopée des Girondins de Bordeaux 1996 en Coupe UEFA. Qualifiés via le mystérieux Intertoto, les Bordelais se retrouvent en quarts de finale face au grand AC Milan de Maldini et Baresi. Battus 2-0 à l'aller, les Marine et Blanc signent un match retour légendaire au Parc Lescure : une victoire 3-0 portée par un jeune entraîneur nommé Rolland Courbis, les déboulés de Christophe Dugarry et la patte technique d'un certain Zinédine Zidane. Un match complet de club français d'une intensité absolue, disponible dans nos rayons.</p>
+                            <p>Quelques années plus tard, c'est l'AS Monaco 2004 en Ligue des Champions qui fait souffler un vent de folie sur l'Europe. Guidés par Didier Deschamps, les Monégasques éliminent coup sur coup le Real Madrid des Galactiques et le Chelsea naissant de Claudio Ranieri. La chevelure au vent de Ludovic Giuly, le sens du but de Fernando Morientes, les centres au cordeau de Jérôme Rothen... Ce parcours jusqu'en finale reste l'une des plus belles odes au football offensif des vingt dernières années.</p>
+                            <p style="color: #fff; font-weight: bold;">La beauté tragique : L'OM 1991 et les pionniers de Bastia</p>
+                            <p>Mais l'histoire du football français sur le continent, c'est aussi des larmes gravées dans le marbre. Avant le sacre de Munich, il y a eu le traumatisme de l'OM 1991. Une équipe stratosphérique (Papin, Waddle, Abedi Pelé) qui écrase le Milan AC en quarts avant d'échouer aux tirs au but en finale à Bari face à l'Étoile Rouge de Belgrade. Une finale fermée, irrespirable, indispensable pour comprendre la rage qui habitera Marseille deux ans plus tard.</p>
+                            <p>Et que dire des pionniers du Sporting Club de Bastia en 1978 ? Une épopée folle sur une pelouse transformée en marécage furieux face au PSV Eindhoven. Des morceaux de bravoure que les images de synthèse actuelles ne pourront jamais reproduire.</p>
+                            <p style="color: #fff; font-weight: bold;">Téléchargez l'histoire en qualité d'origine</p>
+                            <p>Ces moments de liesse populaire et de frissons nationaux ne doivent pas mourir sur de vieilles bandes magnétiques. Au Grenier du Football, nous avons rassemblé et sécurisé ces souvenirs.</p>
+                            <p>Vous cherchez à analyser la tactique de Deschamps en 2004 ou à vibrer devant le triomphe des Bordelais face au Milan ? Tout notre catalogue est disponible au téléchargement. Faites votre choix dans votre panier : profitez de nos fichiers numériques classiques ou plongez dans le réalisme d'époque avec nos formats DVD d'origine (.VOB). Venez fouiller, l'histoire n'attend que vous !</p>
+                        </div>
+                    </details>
+                </article>
+
+                <article class="blog-article">
+                    <div class="blog-meta">📅 Chronique #4 • CHAMPIONS LEAGUE 2026</div>
+                    <h3>Le PSG 2026 et l'Europe : De l'or dans les yeux, du vintage plein les cartons</h3>
+                    <p>Alors que le peuple rouge et bleu termine à peine de célébrer le deuxième sacre consécutif historique du club en Champions League conquis à Budapest, un constat s'impose : le PSG version Luis Enrique a définitivement installé sa dictature sur le football européen. Finie l'époque des stars hollywoodiennes qui s'égaraient en huitièmes de finale ; place à une machine collective ultra-huilée, capable de confisquer le ballon et d'éteindre les plus grands d'Europe par un pressing étouffant.</p>
+
+                    <details class="article-details">
+                        <summary>⬇️ Lire la suite / Réduire</summary>
+                        <div style="margin-top: 15px;">
+                            <p>Pourtant, pour apprécier à sa juste valeur ce printemps 2026 légendaire, il faut se pencher sur le cadavre des géants que Paris a dû piétiner en route. Sortez les projecteurs, on revient sur une campagne européenne gravée dans le marbre.</p>
+                            <p style="color: #fff; font-weight: bold;">Le rouleau compresseur face aux ogres : Liverpool et le Bayern terrassés</p>
+                            <p>Pour s'offrir une place au sommet de la Champions League cette année, le PSG n'a pas hérité du tirage au sort des poissards. Le tableau final ressemblait plutôt à un pèlerinage de l'angoisse à travers l'histoire du football européen.</p>
+                            <p>D'abord, il a fallu régler son compte à Liverpool en quarts de finale. Le match aller au Parc des Princes avait posé les bases (2-0), mais c'est le retour à Anfield qui a définitivement douché les espoirs des Reds. Une victoire nette et sans bavure (2-0) scellée par un doublé assassin d'Ousmane Dembélé en fin de rencontre, transformant le kop de Liverpool en une cathédrale de silence. Score cumulé : 4-0, circulez, il n'y a rien à voir.</p>
+                            <p>Puis est venu le monstre final avant l'heure : le Bayern Munich en demi-finale. Les puristes se souviennent encore de la défaite parisienne en phase de ligue (2-1) au Parc, mais les hommes de Luis Enrique ont de la mémoire et du vice. Le match aller de cette demi-finale restera comme l'un des sommets dramatiques de l'année : un succès 5-4 dantesque à Paris, suivi d'un nul irrespirable (1-1) arraché à l'Allianz Arena grâce à un but rapide de Dembélé. Solide sur ses appuis, le bloc parisien a repoussé les assauts bavarois jusqu'au coup de sifflet final pour s'ouvrir les portes de l'histoire.</p>
+                            <p style="color: #fff; font-weight: bold;">Du collectif de Luis Enrique aux exploits d'antan : Le pèlerinage du Grenier</p>
+                            <p>Voir Marquinhos soulever sa deuxième coupe aux grandes oreilles d'affilée avec le brassard de capitaine, c'est magnifique. Mais pour les romantiques du football, ceux qui traînent leurs guêtres sur notre site, ce triomphe moderne réveille de vieux souvenirs enfouis au fond de la mémoire collective.</p>
+                            <p>Avant d'être le rouleau compresseur aux 60 titres majeurs, le club de la capitale a mangé son pain noir. Il a fallu les coups de génie de Rai, les déboulés de George Weah en 1994, la folie de la Coupe des Coupes 1996 et des soirées de tempête face au Steaua Bucarest pour forger l'ADN européen de cette équipe.</p>
+                            <p>Les joutes dantesques de cette année face au Bayern Munich ou à Liverpool font directement écho aux affrontements cultes des années 90 et 2000. Vous vous rappelez du but stratosphérique de Weah à Munich en 1994 ? Ou des face-à-face tactiques de l'era classique ? C'est cette histoire-là, texturée, imparfaite et passionnée, qui a donné au club ses lettres de noblesse avant l'ère moderne.</p>
+                            <p style="color: #fff; font-weight: bold;">Dépoussiérez vos classiques avant d’ouvrir le champagne</p>
+                            <p>Regarder l'équipe soulever des trophées en streaming 4K, c'est bien. Mais comprendre d'où vient cette obsession européenne en se refaisant les matchs fondateurs en qualité d'époque, c'est encore mieux.</p>
+                            <p>Comme l'indique l'architecture de notre application, les archives du football ne meurent jamais. Que vous soyez nostalgiques de la double confrontation face au Bayern de l'an 2000 ou des grandes soirées européennes qui prenaient vie sur les magnétoscopes de votre enfance, tout est conservé amoureusement dans nos rayons.</p>
+                            <p>Vous pouvez récupérer ces trésors directement en fichiers numériques légers (parfaits pour une session rapide sur tablette) ou en qualité informatique d'origine (fichiers .VOB) pour retrouver le grain pur des retransmissions de l'époque sur votre téléviseur.</p>
+                            <p>Alors, entre deux célébrations pour ce doublé européen unique, venez faire un tour au fond du Grenier. Parce que pour savoir où l'on va, il ne faut jamais oublier d'où l'on vient !</p>
+                        </div>
+                    </details>
+                </article>
+                
+                <article class="blog-article">
+                    <div class="blog-meta">📅 Chronique #3 • COUPE DU MONDE 1994</div>
+                    <h3>USA 94 vs Mondial 2026 : Retour vers le futur</h3>
+                    <p>Alors que le Mondial 2026 s'apprête à poser ses valises XXL sur le continent américain, un vent de nostalgie souffle sur le football mondial. Trente-deux ans après l’épopée mythique d'USA 94, les États-Unis remettent le couvert. Pour les puristes qui ont grandi avec le grain des archives VHS, les maillots trois fois trop grands et les génériques télé qui sentent bon les années 90, ce retour au pays de l'Oncle Sam est un pèlerinage obligatoire.</p>
+
+                    <details class="article-details">
+                        <summary>⬇️ Lire la suite / Réduire</summary>
+                        <div style="margin-top: 15px;">
+                            <p>Mais entre le soccer version 1994 et le giga-tournoi à 48 équipes de 2026, qu’est-ce qui a vraiment changé ? Sortez les magnétoscopes, on plonge dans le football rétro le plus fou de l'Histoire. Le folklore d'USA 94 : Diana Ross, gardien fluo et short en jean.</p>
+                            <p>Disons-le franchement : en 1994, la FIFA voulait évangéliser les Américains au "vrai" football. Ce qu’elle n’avait pas prévu, c’est que l’Amérique allait digérer le football à sa sauce. Le Mondial 94, c’est d'abord une cérémonie d’ouverture gravée dans le marbre de la lose magnifique, avec Diana Ross qui rate un penalty face à un but grand ouvert, juste avant que le cadre ne se sépare en deux de manière totalement scriptée.</p>
+                            <p>C’est aussi l’époque où le design textile a fait un AVC collectif. Qui a oublié Alexis Lalas et les maillots de l'équipe des USA façon nappe de pique-nique en jean avec des étoiles blanches ? Et surtout, qui a survécu visuellement aux tenues de Jorge Campos, le gardien-attaquant mexicain qui concevait lui-même ses maillots, ressemblant à un surligneur Stabilo sous acide ?</p>
+                            <p>Revoyez un match de foot entier de cette époque : le rythme est différent, le public découvre les règles en direct, mais l'ambiance des stades de Pasadena ou de Détroit sous un soleil de plomb a une texture unique que le football moderne sur-standardisé a un peu perdue. Du drame, du sang et la Tresse Divine. Si le folklore était pop, le terrain, lui, était un théâtre dramatique d'une intensité rare.</p>
+                            <p>USA 94, c’est le chant du cygne de Diego Maradona, expulsé du tournoi après une célébration face caméra les yeux exorbités par l'éphédrine, après un but somptueux contre la Grèce. C’est l’avènement de la Bulgarie d'Hristo Stoitchkov qui découpe l'Allemagne en quarts, et le duo brésilien Romário - Bebeto qui invente la célébration "berceau" pour la naissance du petit Mattheus.</p>
+                            <p>Et puis, il y a la tragédie grecque version italienne. Roberto Baggio. À lui seul, le numéro 10 de la Squadra Azzurra porte son pays jusqu'en finale grâce à des exploits lunaires en fins de matchs. La "Tresse Divine" est au sommet de son art. Et pourtant, l'Histoire ne retiendra que ce moment suspendu dans le ciel de Los Angeles : ce tir au but envoyé dans les nuages face à Taffarel, laissant Baggio les mains sur les hanches, tête baissée, sous les confettis brésiliens.</p>
+                            <p>Pourquoi vous DEVEZ revoir ces matchs entiers avant le coup d'envoi du Mondial 2026. Regarder le Mondial 2026 sans avoir révisé ses classiques de 1994, c'est comme regarder le dernier Star Wars sans savoir qui est Darth Vader : ça n'a aucun sens. À l’époque, pas de streaming, pas de réseaux sociaux. Les matchs s'enregistraient religieusement sur des cassettes VHS à deux têtes, en espérant que la météo ne gâche pas le signal analogique de TF1.</p>
+                            <p>Aujourd’hui, le patrimoine est en danger, et c’est là que la magie opère. Pour comprendre la ferveur qui va s'emparer des stades américains cet été, il faut se refaire l'intégrale. Sur notre plateforme, nous avons dépoussiéré ces trésors. Que vous cherchiez le magique Roumanie ou la finale fermée mais irrespirable entre le Brésil et l'Italie, tout est disponible. Vous pouvez télécharger vos matchs vintage préférés en qualité informatique d'origine ou en fichiers numériques légers pour les visionner sur votre télé avant les matchs de ce soir. Alors, avant de basculer dans le football du futur, venez faire un tour au fond du Grenier. Parce que le football, c’était peut-être pas mieux avant, mais bordel, qu'est-ce que ça avait de la gueule !</p>
+                        </div>
+                    </details>
+                </article>
+
+                <article class="blog-article">
+                    <div class="blog-meta">📅 Chronique #2 • Les Grands Récits</div>
+                    <h3>Mondial 1998 : À la recherche des 64 matchs de la compétition idéale</h3>
+                    <p>Bâtir l'archive ultime de France 98 est un travail de titan. Entre les commentaires mythiques du duo Thierry Roland - Jean-Michel Larqué sur TF1 et les analyses tactiques de Canal+, chaque diffuseur possède sa propre histoire.</p>
+                    
+                    <details class="article-details">
+                        <summary>⬇️ Lire la suite / Réduire</summary>
+                        <div style="margin-top: 15px;">
+                            <p>L'objectif du Grenier du Football est de rassembler toutes ces versions TV françaises pour préserver ce patrimoine historique exceptionnel. Des phases de poules à la finale mythique du 12 juillet, rejoignez le projet pour compléter cette collection unique d'archives et de retransmissions complètes.</p>
+                        </div>
+                    </details>
+                </article>
+                
+                <article class="blog-article">
+                    <div class="blog-meta">📅 Chronique #1 • Histoire du Foot</div>
+                    <h3>Pourquoi les archives de matchs en format DVD (.VOB) ont une meilleure qualité ?</h3>
+                    <p>Quand on collectionne les vieux matchs de football, on croise souvent deux formats : le numérique compressé (MP4) et le format DVD d'origine (.VOB). Le format VOB conserve l'intégralité du flux vidéo d'époque sans appliquer de nouvelle compression.</p>
+                    
+                    <details class="article-details">
+                        <summary>⬇️ Lire la suite / Réduire</summary>
+                        <div style="margin-top: 15px;">
+                            <p>C'est le secret pour garder le grain parfait et la netteté d'une diffusion télévisée des années 90 sur vos écrans modernes. Bien que plus lourd en espace de stockage, c'est le choix privilégié des vrais puristes de l'image vidéo.</p>
+                        </div>
+                    </details>
+                </article>
+
+            </div>
+        </section>
+
+        <!-- SECTION AVIS / PREUVE SOCIALE -->
+        <section id="avis">
+            <h2>⭐ La parole aux passionnés</h2>
+            <div class="reviews-grid">
+                <div class="review-card">
+                    <div class="stars">★★★★★</div>
+                    <p>"J'ai pu revoir des matchs que je ne pensais pas trouver. Merci."</p>
+                    <div class="review-author">— Jérome.</div>
+                </div>
+                <div class="review-card">
+                    <div class="stars">★★★★★</div>
+                    <p>"Matchs France 98 bien reçus ! Le tournoi de mon enfance. Hâte de revoir certaines pépites."</p>
+                    <div class="review-author">— Thomas.</div>
+                </div>
+                <div class="review-card">
+                    <div class="stars">★★★★★</div>
+                    <p>"Fichiers reçus très rapidement. C'est génial de pouvoir revoir l'OM de Courbis. Merci pour ces matchs que je cherchais depuis longtemps"</p>
+                    <div class="review-author">— Nathan.</div>
+                </div>
+            </div>
+        </section>
+
+        <section id="infos-annexes">
+            <h2>📼 Le Comptoir du Vidéoclub : Tarifs & Échanges</h2>
+            <div class="grid-2">
+                <div class="info-card">
+                    <h3>🎫 Votre billet pour voyager dans le temps</h3>
+                    <p>Le comptoir est ouvert ! Pour revivre vos plus belles émotions, deux choix s'offrent à vous :</p>
+                    <p>• <b>Format Numérique (3€) :</b> L'option pratique, idéale pour vos écrans modernes (PC, tablette et TV).<br>
+                       • <b>Format DVD / VOB (5€) :</b> Le choix des puristes pour des fichiers informatiques d'origine sans aucune perte.<br>
+                       • <b>La carte de fidélité :</b> Repartez avec <b>1 match offert tous les 10 matchs achetés !</b></p>
+                </div>
+                <div class="info-card">
+                    <h3>🔄 Le Troc de la Cour de Récré</h3>
+                    <p>Vous vous souvenez des échanges de cartes Panini à la récréation ? On fait pareil ici ! Le catalogue grandit grâce à la communauté.</p>
+                    <p>Si vous avez dans votre deck des archives inédites de l'<b>AC Milan</b> ou des émissions rares de la <b>Coupe du Monde 1998</b>, venez me voir. Contactez moi pour organiser un échange de fichiers numériques et débloquer de nouveaux souvenirs. À vous de jouer !</p>
+                </div>
+            </div>
+        </section>
+
+        <footer>
+            <div style="max-width: 800px; margin: 0 auto 20px; font-size: 0.8rem; color: #52525b; text-align: justify;">
+                <strong>À propos du Grenier du Football :</strong> Notre mission est de sauvegarder le patrimoine télévisuel sportif. Que vous cherchiez à revoir un match de foot historique des années 90, à télécharger une finale de Ligue des Champions complète, ou à retrouver l'émotion d'une vieille cassette VHS de foot en qualité numérique, notre vidéothèque est faite pour vous.
+            </div>
+            <p>© 2026 - Le Grenier du Football | Site officiel de l'Archiviste.</p>
+            <p>Contact : <a href="mailto:legrenierdufootball@hotmail.com">legrenierdufootball@hotmail.com</a></p>
+            
+            <div style="margin-top: 25px;">
+                <p style="font-size: 0.75rem; color: var(--text-muted); margin-bottom: 5px;">Visiteurs depuis l'ouverture :</p>
+                <img src="https://hitwebcounter.com/counter/counter.php?page=14559868&style=0006&nbdigits=5&type=page&initCount=142" title="Compteur de visites" Alt="Compteur web" border="0" loading="lazy">
+            </div>
+        </footer>
+
+    </div>
+
+    <!-- BOUTON RETOUR EN HAUT -->
+    <button id="btn-back-to-top" title="Retour en haut">⬆️</button>
+
+    <script>
+        // SCRIPT POUR LE BOUTON FLOTTANT
+        let mybutton = document.getElementById("btn-back-to-top");
+
+        // Quand l'utilisateur scroll de 300px vers le bas, on affiche le bouton
+        window.onscroll = function() {
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                mybutton.style.display = "block";
+            } else {
+                mybutton.style.display = "none";
+            }
+        };
+
+        // Quand l'utilisateur clique sur le bouton, on remonte en douceur (smooth)
+        mybutton.onclick = function() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        };
+    </script>
+
+</body>
+</html><!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Le Grenier du Football | Télécharger des Matchs de Foot Entiers & Archives Rétro</title>
+    <meta name="description" content="La référence pour revoir les matchs de foot historiques. Téléchargez plus de 5000 matchs entiers en vidéo, numérisés depuis des cassettes VHS et DVD d'époque.">
+    <meta name="keywords" content="télécharger match de foot entier, revoir ancien match de foot, archives football video, cassette vhs foot, dvd match foot retro, match complet annee 90, collection video football">
+    
+    <meta property="og:title" content="Le Grenier du Football | Archives & Matchs de Foot Rétro en Vidéo">
+    <meta property="og:description" content="Découvrez un grand choix d'archives de matchs de football rétro. Explorez un catalogue de près de 5000 matchs classiques numérisés depuis des cassettes VHS et DVD d'époque.">
+    <meta property="og:image" content="https://raw.githubusercontent.com/Classeurfoot/mon-app-foot/main/logo.png">
+    <meta property="og:url" content="https://legrenierdufootball.com">
+    <meta property="og:type" content="website">
+
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
