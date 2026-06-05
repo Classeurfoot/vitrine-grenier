@@ -7,7 +7,6 @@
     <meta name="description" content="Revoir l'intégralité des matchs de la Coupe du Monde 98. Revivez le parcours de l'Équipe de France et les chocs du Mondial en qualité d'époque.">
     
     <style>
-        /* Exactement le même bloc CSS que pour la page OM */
         :root { --bg-color: #0e0e11; --card-bg: #18181c; --primary: #d97706; --primary-hover: #b45f06; --text: #fafafa; --text-muted: #a1a1aa; --border: #2d2d34; }
         body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: var(--bg-color); color: var(--text); margin: 0; padding: 0; line-height: 1.6; }
         .main-nav { background-color: var(--card-bg); border-bottom: 1px solid var(--border); padding: 15px 20px; position: sticky; top: 0; z-index: 100; box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5); }
@@ -18,19 +17,17 @@
         header { text-align: center; padding: 40px 20px 30px; }
         h1 { font-size: 2.5rem; color: var(--text); margin: 0 0 20px 0; font-weight: 700; }
         .streamlit-text { max-width: 850px; margin: 0 auto 20px; font-size: 16px; color: var(--text); line-height: 1.6; text-align: center; }
-        .btn-cta { background-color: #2e7d32; color: white; padding: 14px 32px; text-decoration: none; font-size: 1.1rem; font-weight: bold; border-radius: 8px; display: inline-block; transition: all 0.3s ease; }
-        .btn-cta:hover { background-color: #1b5e20; transform: translateY(-2px); }
         section { padding: 40px 0; border-top: 1px solid var(--border); }
         h2 { font-size: 1.8rem; color: var(--primary); margin-bottom: 30px; font-weight: 600; }
-        .blog-grid, .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 25px; }
-        .blog-article, .info-card { background-color: var(--card-bg); border: 1px solid var(--border); border-radius: 10px; padding: 25px; text-align: left; display: flex; flex-direction: column; }
+        .blog-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 25px; }
+        .blog-article { background-color: var(--card-bg); border: 1px solid var(--border); border-radius: 10px; padding: 25px; text-align: left; display: flex; flex-direction: column; }
         .blog-meta { font-size: 0.85rem; color: var(--primary); margin-bottom: 8px; font-weight: 600; }
-        .blog-article h3, .info-card h3 { margin: 0 0 12px 0; font-size: 1.4rem; color: #fff; }
+        .blog-article h3 { margin: 0 0 12px 0; font-size: 1.4rem; color: #fff; }
         .blog-article p { color: var(--text-muted); font-size: 0.95rem; }
         .article-details summary { color: var(--primary); font-weight: bold; cursor: pointer; padding-top: 15px; margin-top: auto; list-style: none; display: block; }
         .article-details summary::-webkit-details-marker { display: none; }
         footer { text-align: center; padding: 40px 20px 20px; color: var(--text-muted); font-size: 0.9rem; border-top: 1px solid var(--border); }
-        @media (max-width: 768px) { .blog-grid, .grid-2 { grid-template-columns: 1fr; } .main-nav ul { flex-direction: column; align-items: center; gap: 10px;} }
+        @media (max-width: 768px) { .blog-grid { grid-template-columns: 1fr; } .main-nav ul { flex-direction: column; align-items: center; gap: 10px;} }
     </style>
 </head>
 <body>
@@ -51,10 +48,9 @@
                 <p>Le 12 Juillet 1998 pour l'éternité... Explorez notre catalogue dédié à la mythique <b>Coupe du Monde organisée en France</b>.</p>
                 <p>Revivez l'intégralité du parcours de l'Équipe de France d'Aimé Jacquet, la finale face au Brésil, ainsi que tous les chocs de la compétition avec les commentaires cultes d'époque (TF1, Canal+, France TV).</p>
             </div>
-            <a href="https://legrenierdufootball.streamlit.app/?search=1998" class="btn-cta" target="_blank">⚽ Voir le catalogue France 98</a>
         </header>
 
-        <section id="blog">
+        <section id="blog" style="border-top: none; padding-top: 0;">
             <h2>✍️ Carnet de Voyage : Été 98</h2>
             <div class="blog-grid">
                 <article class="blog-article">
@@ -80,20 +76,6 @@
                         </div>
                     </details>
                 </article>
-            </div>
-        </section>
-
-        <section id="infos-annexes">
-            <h2>📼 Le Comptoir du Vidéoclub</h2>
-            <div class="grid-2">
-                <div class="info-card">
-                    <h3>🎫 Tarifs</h3>
-                    <p>• <b>Format Numérique (3€)</b><br>• <b>Format DVD / VOB (5€)</b></p>
-                </div>
-                <div class="info-card">
-                    <h3>🔄 Échanges</h3>
-                    <p>Vous avez des matchs de 98 avec des commentaires étrangers rares ? Venez troquer !</p>
-                </div>
             </div>
         </section>
 
