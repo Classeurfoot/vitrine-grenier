@@ -14,7 +14,6 @@
     <meta property="og:url" content="https://legrenierdufootball.com">
     <meta property="og:type" content="website">
 
-    <!-- DONNÉES STRUCTURÉES COMPLÈTES (WEBSITE + PRODUIT + BLOG) -->
     <script type="application/ld+json">
     [
       {
@@ -143,6 +142,60 @@
             color: var(--primary);
         }
 
+        /* BANDEAU ÉPHÉMÉRIDE (CE JOUR-LÀ) */
+        .ticker-wrap {
+            width: 100%;
+            background-color: var(--card-bg);
+            color: var(--text);
+            padding: 8px 0;
+            display: flex;
+            align-items: center;
+            overflow: hidden;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .ticker-heading {
+            background-color: var(--primary);
+            color: white;
+            padding: 8px 20px;
+            font-weight: bold;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            z-index: 10;
+            white-space: nowrap;
+            box-shadow: 3px 0 10px rgba(0,0,0,0.6);
+        }
+
+        .ticker {
+            flex: 1;
+            overflow: hidden;
+            white-space: nowrap;
+            position: relative;
+        }
+
+        .ticker-item {
+            display: inline-block;
+            padding-left: 100%;
+            font-weight: 500;
+            font-size: 0.95rem;
+            animation: ticker-anim 35s linear infinite;
+        }
+
+        .ticker-item:hover {
+            animation-play-state: paused;
+        }
+
+        .match-ephemeride {
+            color: #fbbf24;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        @keyframes ticker-anim {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-100%); }
+        }
+
         .container {
             max-width: 1000px;
             margin: 0 auto;
@@ -188,48 +241,6 @@
 
         .streamlit-text p {
             margin-bottom: 20px;
-        }
-
-        /* BARRE DE RECHERCHE FRONTALE */
-        .search-container {
-            margin: 25px auto;
-            max-width: 600px;
-            display: flex;
-            gap: 10px;
-            justify-content: center;
-        }
-
-        .search-input {
-            flex: 1;
-            padding: 14px 20px;
-            border-radius: 8px;
-            border: 1px solid var(--border);
-            background-color: var(--card-bg);
-            color: var(--text);
-            font-size: 1rem;
-            transition: border-color 0.3s;
-        }
-
-        .search-input:focus {
-            outline: none;
-            border-color: var(--primary);
-        }
-
-        .search-btn {
-            background-color: var(--primary);
-            color: white;
-            border: none;
-            padding: 14px 25px;
-            border-radius: 8px;
-            font-weight: bold;
-            font-size: 1rem;
-            cursor: pointer;
-            transition: background-color 0.3s ease, transform 0.2s;
-        }
-
-        .search-btn:hover {
-            background-color: var(--primary-hover);
-            transform: translateY(-2px);
         }
 
         .btn-cta {
@@ -488,7 +499,6 @@
             .logo-banner img { height: 40px; }
             .grid-2 { grid-template-columns: 1fr; }
             .blog-grid { grid-template-columns: 1fr; }
-            .search-container { flex-direction: column; padding: 0 10px; }
             .pepite-header { flex-direction: column; align-items: flex-start; }
             .main-nav ul { flex-direction: column; gap: 10px; align-items: center; }
             
@@ -514,6 +524,16 @@
         </ul>
     </nav>
 
+    <!-- BANDEAU ÉPHÉMÉRIDE DYNAMIQUE -->
+    <div class="ticker-wrap">
+        <div class="ticker-heading" id="date-du-jour">📅 Ce jour-là :</div>
+        <div class="ticker">
+            <div class="ticker-item" id="ephemeride-content">
+                ⏳ Chargement des archives historiques de ce jour...
+            </div>
+        </div>
+    </div>
+
     <div class="container">
         
         <header>
@@ -528,9 +548,7 @@
                 <p><b>Téléchargez vos matchs vintage préférés, complétez votre collection, ou proposez vos propres vidéos pour un échange entre passionnés.</b></p>
             </div>
 
-            <!-- BARRE DE RECHERCHE -->
-                        
-            <a href="https://legrenierdufootball.streamlit.app/" class="btn-cta">⚽ Découvrez le catalogue complet ici</a>
+            <a href="https://legrenierdufootball.streamlit.app/" class="btn-cta">⚽ Découvrez le catalogue complet</a>
         </header>
 
         <div class="logo-banner">
@@ -594,7 +612,7 @@
                     <details class="article-details">
                         <summary>⬇️ Lire la suite / Réduire</summary>
                         <div style="margin-top: 15px;">
-                            <p>Pourtant, cette saison restera dans les mémoires comme un chef-d'œuvre maudit : un football total, des retournements de situation irrationnels, une ville de Marseille en fusion, mais au bout du compte, des larmes et des médailles d'argent. Plongez dans les archives du football vintage et redécouvrez l'équipe de Rolland Courbis, un groupe qui n'a rien gagné sur le papier, mais qui a conquis le cœur de toute une génération.</p>
+                            <p>Pourtant, cette saison restera dans les mémoires comme un chef-d'œuvre maudit : un football total, des retournements de situation irrationnels, une ville de Marseille en fusion, mais au bout du compte, des larmes et des médailles d'argent. Plongez dans archives du football vintage et redécouvrez l'équipe de Rolland Courbis, un groupe qui n'a rien gagné sur le papier, mais qui a conquis le cœur de toute une génération.</p>
                             <p style="color: #fff; font-weight: bold;">🌟 Le casting XXL : Les "Galactiques" de la Canebière</p>
                             <p>À l'été 1998, Rolland Courbis, le truculent "Coach", façonne un effectif qui ressemble à une équipe de jeu vidéo d'époque. Sur le papier, l'armada de l'Olympique de Marseille donne tout simplement le vertige aux défenses de l'Hexagone.</p>
                             <p>La charnière dorée : Laurent Blanc, fraîchement couronné sur le toit du monde, s'installe en patron absolu de la défense, apportant son flegme et sa relance légendaire.</p>
@@ -702,7 +720,7 @@
                         <summary>⬇️ Lire la suite / Réduire</summary>
                         <div style="margin-top: 15px;">
                             <p>Mais entre le soccer version 1994 et le giga-tournoi à 48 équipes de 2026, qu’est-ce qui a vraiment changé ? Sortez les magnétoscopes, on plonge dans le football rétro le plus fou de l'Histoire. Le folklore d'USA 94 : Diana Ross, gardien fluo et short en jean.</p>
-                            <p>Disons-le franchement : en 1994, la FIFA voulait évangéliser les Américains au "vrai" football. Ce qu’elle n’avait pas prévu, c’est que l’Amérique allait digérer le football à sa sauce. Le Mondial 94, c’est d'abord une cérémonie d’ouverture gravée dans le marbre de la lose magnifique, avec Diana Ross qui rate un penalty face à un but grand ouvert, juste avant que le cadre ne se sépare en deux de manière totally scriptée.</p>
+                            <p>Disons-le franchement : en 1994, la FIFA voulait évangéliser les Américains au "vrai" football. Ce qu’elle n’avait pas prévu, c’est que l’Amérique allait digérer le football à sa sauce. Le Mondial 94, c’est d'abord une cérémonie d’ouverture gravée dans le marbre de la lose magnifique, avec Diana Ross qui rate un penalty face à un but grand ouvert, juste avant que le cadre ne se sépare en deux de manière totalement scriptée.</p>
                             <p>C’est aussi l’époque où le design textile a fait un AVC collectif. Qui a oublié Alexis Lalas et les maillots de l'équipe des USA façon nappe de pique-nique en jean avec des étoiles blanches ? Et surtout, qui a survécu visuellement aux tenues de Jorge Campos, le gardien-attaquant mexicain qui concevait lui-même ses maillots, ressemblant à un surligneur Stabilo sous acide ?</p>
                             <p>Revoyez un match de foot entier de cette époque : le rythme est différent, le public découvre les règles en direct, mais l'ambiance des stades de Pasadena ou de Détroit sous un soleil de plomb a une texture unique que le football moderne sur-standardisé a un peu perdue. Du drame, du sang et la Tresse Divine. Si le folklore était pop, le terrain, lui, était un théâtre dramatique d'une intensité rare.</p>
                             <p>USA 94, c’est le chant du cygne de Diego Maradona, expulsé du tournoi après une célébration face caméra les yeux exorbités par l'éphédrine, après un but somptueux contre la Grèce. C’est l’avènement de la Bulgarie d'Hristo Stoitchkov qui découpe l'Allemagne en quarts, et le duo brésilien Romário - Bebeto qui invente la célébration "berceau" pour la naissance du petit Mattheus.</p>
@@ -820,6 +838,58 @@
                 behavior: 'smooth'
             });
         };
+    </script>
+
+    <!-- SCRIPT POUR L'ÉPHÉMÉRIDE -->
+    <script>
+        // 1. LIEN VERS TON FICHIER CSV (À REMPLACER AVEC TON VRAI LIEN RAW GITHUB)
+        const urlCSV = "METS_LE_LIEN_RAW_GITHUB_DE_TON_CSV_ICI";
+
+        // 2. Formater la date du jour (Jour et Mois)
+        const aujourdhui = new Date();
+        const jour = String(aujourdhui.getDate()).padStart(2, '0');
+        const mois = String(aujourdhui.getMonth() + 1).padStart(2, '0');
+        
+        // Ex: On cherche "05/06" pour le 5 Juin
+        const rechercheDate = `${jour}/${mois}`; 
+        
+        document.getElementById('date-du-jour').innerHTML = `📅 Ce jour-là (${jour}/${mois}) :`;
+
+        // 3. Lire et filtrer le CSV
+        fetch(urlCSV)
+            .then(response => response.text())
+            .then(data => {
+                // Attention : remplacer '\n' par le bon saut de ligne si besoin et la ',' par le bon séparateur (ex: ';')
+                const lignes = data.split('\n');
+                let matchsDuJour = [];
+
+                for (let i = 1; i < lignes.length; i++) {
+                    const colonnes = lignes[i].split(','); // Séparateur de colonnes
+                    
+                    if (colonnes.length > 3) {
+                        const dateMatch = colonnes[0]; // On suppose que la Date est la colonne 1 (index 0)
+                        
+                        if (dateMatch.includes(rechercheDate)) {
+                            const domicile = colonnes[1]; // Équipe 1 (colonne 2)
+                            const exterieur = colonnes[2]; // Équipe 2 (colonne 3)
+                            const annee = dateMatch.substring(6, 10); // Extrait l'année (à adapter)
+                            
+                            matchsDuJour.push(`<span class="match-ephemeride">⚽ ${domicile} - ${exterieur} (${annee})</span>`);
+                        }
+                    }
+                }
+
+                const bandeau = document.getElementById('ephemeride-content');
+                if (matchsDuJour.length > 0) {
+                    bandeau.innerHTML = matchsDuJour.join(' &nbsp;&nbsp;&nbsp;⭐&nbsp;&nbsp;&nbsp; ');
+                } else {
+                    bandeau.innerHTML = "Aucun match historique majeur répertorié dans le catalogue à cette date. Revenez demain !";
+                }
+            })
+            .catch(error => {
+                console.error("Erreur de chargement de l'éphéméride :", error);
+                document.getElementById('ephemeride-content').innerHTML = "Impossible de charger les archives aujourd'hui.";
+            });
     </script>
 
 </body>
