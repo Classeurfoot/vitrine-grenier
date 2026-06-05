@@ -178,7 +178,6 @@
             padding-left: 100%;
             font-weight: 500;
             font-size: 0.95rem;
-            /* Modifié à 60s pour un défilement plus lent */
             animation: ticker-anim 60s linear infinite; 
         }
 
@@ -860,6 +859,9 @@
             .then(data => {
                 const lignes = data.split('\n');
                 let matchsDuJour = [];
+                
+                // Expression régulière pour chercher 4 chiffres d'affilée (une année)
+                const hasYearRegex = /\d{4}/;
 
                 // On commence à i=1 pour ignorer la première ligne du CSV (les titres des colonnes)
                 for (let i = 1; i < lignes.length; i++) {
@@ -876,8 +878,21 @@
                             const exterieur = colonnes[7]; 
                             const score = colonnes[8];
                             
-                            // Construction du format demandé : (Compétition) Domicile Score Extérieur
-                            matchsDuJour.push(`<span class="match-ephemeride">⚽ (${competition}) ${domicile} ${score} ${exterieur}</span>`);
+                            // On extrait l'année : "DD/MM/YYYY" => on récupère "YYYY" (les 4 derniers caractères)
+                            const annee = dateMatch.substring(6, 10); 
+                            
+                            let formatMatch = "";
+                            
+                            // Logique conditionnelle pour l'année
+                            if (hasYearRegex.test(competition)) {
+                                // Si la compétition contient déjà une année, on ne l'affiche pas deux fois
+                                formatMatch = `⚽ (${competition}) ${domicile} ${score} ${exterieur}`;
+                            } else {
+                                // Sinon, on ajoute l'année avant l'équipe à domicile
+                                formatMatch = `⚽ (${competition}) ${annee} ${domicile} ${score} ${exterieur}`;
+                            }
+                            
+                            matchsDuJour.push(`<span class="match-ephemeride">${formatMatch}</span>`);
                         }
                     }
                 }
