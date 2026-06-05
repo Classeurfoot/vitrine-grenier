@@ -233,6 +233,60 @@
             color: #fff;
         }
 
+        /* NOUVEAU : STYLE SECTION AVIS */
+        .reviews-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        .review-card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 20px;
+            font-style: italic;
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        .stars {
+            color: #fbbf24; /* Couleur or */
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+        }
+
+        .review-author {
+            margin-top: 15px;
+            font-weight: 600;
+            color: var(--text);
+            font-style: normal;
+        }
+
+        /* NOUVEAU : STYLE BOUTON RETOUR EN HAUT */
+        #btn-back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            display: none; /* Masqué par défaut */
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            font-size: 24px;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+            z-index: 1000;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        #btn-back-to-top:hover {
+            background-color: var(--primary-hover);
+            transform: translateY(-5px);
+        }
+
         /* FOOTER */
         footer {
             text-align: center;
@@ -255,6 +309,14 @@
             .logo-banner img { height: 40px; }
             .grid-2 { grid-template-columns: 1fr; }
             .blog-grid { grid-template-columns: 1fr; }
+            
+            #btn-back-to-top {
+                bottom: 20px;
+                right: 20px;
+                width: 45px;
+                height: 45px;
+                font-size: 20px;
+            }
         }
     </style>
 </head>
@@ -263,10 +325,10 @@
     <div class="container">
         
         <header>
-    <div class="header-title-container">
-        <img src="https://raw.githubusercontent.com/Classeurfoot/mon-app-foot/main/logo.png" alt="Le Grenier du Football - Boutique d'archives et vidéos de matchs de foot rétro" class="logo-lgf" loading="lazy">
-        <h1>Le Grenier du Football</h1>
-    </div>
+            <div class="header-title-container">
+                <img src="https://raw.githubusercontent.com/Classeurfoot/mon-app-foot/main/logo.png" alt="Le Grenier du Football - Boutique d'archives et vidéos de matchs de foot rétro" class="logo-lgf" loading="lazy">
+                <h1>Le Grenier du Football</h1>
+            </div>
             
             <div class="streamlit-text">
                 <p>Découvrez un grand choix d'<b>archives de matchs de football rétro</b>. Explorez un catalogue interactif de près de <b>5000 matchs classiques</b>, numérisés à partir de véritables <b>cassettes VHS et DVD</b>.</p>
@@ -473,6 +535,28 @@
             </div>
         </section>
 
+        <!-- NOUVELLE SECTION AVIS / PREUVE SOCIALE -->
+        <section id="avis">
+            <h2>⭐ La parole aux passionnés</h2>
+            <div class="reviews-grid">
+                <div class="review-card">
+                    <div class="stars">★★★★★</div>
+                    <p>"J'ai pu revoir des matchs que je ne pensais pas trouver. Merci."</p>
+                    <div class="review-author">— Jérome.</div>
+                </div>
+                <div class="review-card">
+                    <div class="stars">★★★★★</div>
+                    <p>"Matchs France 98 bien reçus ! Le tournoi de mon enfance. Hâte de revoir certaines pépites."</p>
+                    <div class="review-author">— Thomas.</div>
+                </div>
+                <div class="review-card">
+                    <div class="stars">★★★★★</div>
+                    <p>"Fichiers reçus très rapidement. C'est génial de pouvoir revoir l'OM de Courbis. Merci pour ces matchs que je cherchais depuis longtemps"</p>
+                    <div class="review-author">— Nathan.</div>
+                </div>
+            </div>
+        </section>
+
         <section id="infos-annexes">
             <h2>📼 Le Comptoir du Vidéoclub : Tarifs & Échanges</h2>
             <div class="grid-2">
@@ -505,6 +589,31 @@
         </footer>
 
     </div>
+
+    <!-- BOUTON RETOUR EN HAUT -->
+    <button id="btn-back-to-top" title="Retour en haut">⬆️</button>
+
+    <script>
+        // SCRIPT POUR LE BOUTON FLOTTANT
+        let mybutton = document.getElementById("btn-back-to-top");
+
+        // Quand l'utilisateur scroll de 300px vers le bas, on affiche le bouton
+        window.onscroll = function() {
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                mybutton.style.display = "block";
+            } else {
+                mybutton.style.display = "none";
+            }
+        };
+
+        // Quand l'utilisateur clique sur le bouton, on remonte en douceur (smooth)
+        mybutton.onclick = function() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        };
+    </script>
 
 </body>
 </html>
