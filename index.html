@@ -177,7 +177,7 @@
             padding-left: 100%;
             font-weight: 500;
             font-size: 0.95rem;
-            animation: ticker-anim 60s linear infinite; 
+            animation: ticker-anim 60s linear infinite;
         }
 
         .ticker-item:hover {
@@ -430,6 +430,36 @@
         .info-card h3 {
             margin-top: 0;
             color: #fff;
+        }
+
+        /* STYLE DE LA F.A.Q. */
+        .faq-container {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-details summary {
+            color: var(--primary);
+            font-weight: bold;
+            cursor: pointer;
+            font-size: 1.1rem;
+            list-style: none;
+            outline: none;
+            display: block;
+        }
+
+        .faq-details summary::-webkit-details-marker {
+            display: none;
+        }
+
+        .faq-details p {
+            margin-top: 15px;
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            line-height: 1.5;
         }
 
         /* STYLE SECTION AVIS */
@@ -744,7 +774,7 @@
                         <summary>⬇️ Lire la suite / Réduire</summary>
                         <div style="margin-top: 15px;">
                             <p>Mais entre le soccer version 1994 et le giga-tournoi à 48 équipes de 2026, qu’est-ce qui a vraiment changé ? Sortez les magnétoscopes, on plonge dans le football rétro le plus fou de l'Histoire. Le folklore d'USA 94 : Diana Ross, gardien fluo et short en jean.</p>
-                            <p>Disons-le franchement : en 1994, la FIFA voulait évangéliser les Américains au "vrai" football. Ce qu’elle n’avait pas prévu, c’est que l’Amérique allait digérer le football à sa sauce. Le Mondial 94, c’est d'abord une cérémonie d’ouverture gravée dans le marbre de la lose magnifique, avec Diana Ross qui rate un penalty face à un but grand ouvert, juste avant que le cadre ne se sépare en deux de manière totalement scriptée.</p>
+                            <p>Disons-le franchement : en 1994, la FIFA voulait évangéliser les Américains au "vrai" football. Ce qu’elle n’avait pas prévu, c’est que l’Amérique allait digérer le football à sa sauce. Le Mondial 94, c’est d'abord une cérémonie d’ouverture gravée dans le marbre de la lose magnifique, avec Diana Ross qui rate un penalty face à un but grand ouvert, juste avant que le cadre ne se sépare en deux de manière totally scriptée.</p>
                             <p>C’est aussi l’époque où le design textile a fait un AVC collectif. Qui a oublié Alexis Lalas et les maillots de l'équipe des USA façon nappe de pique-nique en jean avec des étoiles blanches ? Et surtout, qui a survécu visuellement aux tenues de Jorge Campos, le gardien-attaquant mexicain qui concevait lui-même ses maillots, ressemblant à un surligneur Stabilo sous acide ?</p>
                             <p>Revoyez un match de foot entier de cette époque : le rythme est différent, le public découvre les règles en direct, mais l'ambiance des stades de Pasadena ou de Détroit sous un soleil de plomb a une texture unique que le football moderne sur-standardisé a un peu perdue. Du drame, du sang et la Tresse Divine. Si le folklore était pop, le terrain, lui, était un théâtre dramatique d'une intensité rare.</p>
                             <p>USA 94, c’est le chant du cygne de Diego Maradona, expulsé du tournoi après une célébration face caméra les yeux exorbités par l'éphédrine, après un but somptueux contre la Grèce. C’est l’avènement de la Bulgarie d'Hristo Stoitchkov qui découpe l'Allemagne en quarts, et le duo brésilien Romário - Bebeto qui invente la célébration "berceau" pour la naissance du petit Mattheus.</p>
@@ -829,15 +859,51 @@
             </div>
         </section>
 
-        <footer>
-            <div style="max-width: 800px; margin: 0 auto 20px; font-size: 0.8rem; color: #52525b; text-align: justify;">
-                <strong>À propos du Grenier du Football :</strong> Plus de 5000 matchs historiques numérisés pour vous faire revivre les grandes émotions du foot. Du VHS au numérique, retrouvez vos matchs, finales et championnats préférés, prêts à être visionnés ou collectionnés.
+        <section id="faq">
+            <h2>❓ Foire Aux Questions (F.A.Q.)</h2>
+            <div class="faq-container">
+                
+                <div class="info-card">
+                    <details class="faq-details">
+                        <summary>⬇️ Quelle est la différence entre le format Numérique (MP4) et DVD (.VOB) ?</summary>
+                        <p>Le <b>format Numérique (MP4/AVI)</b> est un fichier compressé, idéal pour une lecture rapide sur smartphone, PC ou tablette. Le <b>format DVD (.VOB)</b> est le fichier brut extrait du DVD d'époque, sans perte de qualité ni compression supplémentaire. C'est le choix idéal des puristes pour un visionnage authentique sur grand écran.</p>
+                    </details>
+                </div>
+
+                <div class="info-card">
+                    <details class="faq-details">
+                        <summary>⬇️ Comment vais-je recevoir mes matchs après l'achat ?</summary>
+                        <p>Le système est 100% numérique. Une fois la transaction validée, vous recevrez directement par e-mail un lien de téléchargement sécurisé (en général swisstransfer.com). Vous pourrez alors télécharger votre archive sur votre appareil.</p>
+                    </details>
+                </div>
+
+                <div class="info-card">
+                    <details class="faq-details">
+                        <summary>⬇️ Les matchs sont-ils vraiment complets ?</summary>
+                        <p>Oui, absolument. Sauf mention contraire explicite dans le catalogue (ex: "Résumé de 45 min"), tous les matchs sont entiers.</p>
+                    </details>
+                </div>
+
+                <div class="info-card">
+                    <details class="faq-details">
+                        <summary>⬇️ Comment proposer un match à l'échange ?</summary>
+                        <p>Si vous possédez une archive vidéo (VHS numérisée, DVD, etc.) qui n'est pas encore dans le catalogue, contactez-moi par e-mail. Si la pépite m'intéresse, nous procéderons à un échange de bons procédés : votre fichier contre le match de votre choix dans le Grenier !</p>
+                    </details>
+                </div>
+
             </div>
-            <p>© 2026 - Le Grenier du Football | Site officiel de l'Archiviste.</p>
-            <p>Contact : <a href="mailto:legrenierdufootball@hotmail.com">legrenierdufootball@hotmail.com</a></p>
+        </section>
+
+        <footer>
+            <div style="max-width: 600px; margin: 0 auto 20px; font-size: 0.85rem; color: #a1a1aa; text-align: center;">
+                <strong>Le Grenier du Football</strong> : Plus de 5000 matchs historiques numérisés pour vous faire revivre les grandes émotions du foot. Du VHS au numérique, retrouvez vos matchs, finales et championnats préférés, prêts à être visionnés ou collectionnés.
+            </div>
+            
+            <p style="font-size: 0.9rem;">© 2026 - Le Grenier du Football</p>
+            <p style="font-size: 0.85rem;">Une question ? <a href="mailto:legrenierdufootball@hotmail.com">Contacte l'Archiviste</a></p>
             
             <div style="margin-top: 25px;">
-                <p style="font-size: 0.75rem; color: var(--text-muted); margin-bottom: 5px;">Visiteurs depuis l'ouverture :</p>
+                <p style="font-size: 0.75rem; color: var(--text-muted); margin-bottom: 5px;">Visiteurs :</p>
                 <img src="https://hitwebcounter.com/counter/counter.php?page=14559868&style=0006&nbdigits=5&type=page&initCount=142" title="Compteur de visites" Alt="Compteur web" border="0" loading="lazy">
             </div>
         </footer>
